@@ -36,7 +36,7 @@ public class TeamController {
             return ErrorUtil.getErrorReport("参数错误");
 
 
-
+        return null;
 
     }
 
