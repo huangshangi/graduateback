@@ -37,6 +37,10 @@ public interface UserService {
 
     int updateToken(String token,String id);
 
+    int updateOpenIdByToken(String openId,String token);
+
     int updateUser(User user,String id);
+
+
 
 }

@@ -8,6 +8,7 @@
 
 package com.sdu.graduateback.utils;
 
+import com.sdu.graduateback.dto.RecuritQualification;
 import com.sdu.graduateback.dto.Teacher;
 
 public class StringUtil {
@@ -24,6 +25,12 @@ public class StringUtil {
         return isEmpty(teacher.getAward())&&isEmpty(teacher.getDirction())&&isEmpty(teacher.getEduback())
                 &&isEmpty(teacher.getGender())&&isEmpty(teacher.getRank());
 
+
+    }
+
+    public static boolean recuritQualiSelect(RecuritQualification obj){
+
+        return false;
 
     }
 }

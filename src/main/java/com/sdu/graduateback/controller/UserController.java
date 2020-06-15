@@ -20,10 +20,7 @@ import com.sdu.graduateback.utils.HttpUtils;
 import com.sdu.graduateback.utils.StringUtil;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +29,24 @@ import java.util.Map;
 public class UserController {
 
     UserService userService;
+
+    @RequestMapping(value = "/bind",method = RequestMethod.POST)
+    @ResponseBody
+    public Result bind(@RequestParam String token,@RequestParam String code){
+        HashMap<String,String>map=new HashMap<>();
+        if(!StringUtil.isEmpty(token)&&!StringUtil.isEmpty(code)){
+            String openId=HttpUtils.getOpenId(code);
+            if(userService.updateOpenIdByToken(openId,token)!=1){
+                //更新失败
+                return ErrorUtil.getErrorReport("绑定失败,请检查登录状态");
+            }else{
+                map.put("openid",openId);
+                return new Result("success",null,map);
+            }
+        }else{
+            return ErrorUtil.getErrorReport("绑定失败,请检查参数");
+        }
+    }
 
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
@@ -67,7 +82,9 @@ public class UserController {
         }else if(!StringUtil.isEmpty(code)){
             //使用code请求openid
             openid=HttpUtils.getOpenId(code);
-
+            String t=userService.getTokenByOpenid(openid);
+            hashMap.put("token",t);
+            return new Result("success",null,hashMap);
             //return new Result("success",null,t);
         }else if(!StringUtil.isEmpty(openid)){
             token=userService.getTokenByOpenid(openid);
@@ -81,14 +98,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/c",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
-    @ResponseBody
-    public Result ceshi(@RequestBody Ceshi ceshi){
-        Result result=new Result();
-        String s="dd";
-        result.setResult(s);
-        return result;
-    }
+
 
 
 }

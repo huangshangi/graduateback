@@ -9,4 +9,6 @@
 package com.sdu.graduateback.service;
 
 public interface RecuritService {
+
+
 }
