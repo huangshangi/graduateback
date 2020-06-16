@@ -10,8 +10,6 @@ package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.Student;
 
-import java.util.List;
-
 public interface StudentService {
 
     int addStudent(Student student);
@@ -23,8 +21,5 @@ public interface StudentService {
 
 
     int updateStudent(Student student);
-
-
-    List<Student> getStudentListByTeacherId(String teacherId);
 
 }

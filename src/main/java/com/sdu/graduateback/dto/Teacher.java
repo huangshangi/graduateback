@@ -99,4 +99,7 @@ public class Teacher {
     public void setToken(String token) {
         this.token = token;
     }
+    public String toString(){
+        return name;
+    }
 }

@@ -8,10 +8,13 @@
 
 package com.sdu.graduateback.dto;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
+//import jdk.nashorn.internal.objects.annotations.Getter;
 
 
 public class User {
+    private String user_id;
+
+    private String user_type;
 
     private String u;//用户名
 
@@ -62,5 +65,8 @@ public class User {
 
     public void setCode(String code) {
         this.code = code;
+    }
+    public String toString(){
+        return p+" "+u;
     }
 }

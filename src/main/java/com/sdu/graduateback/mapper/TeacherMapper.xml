@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdu.graduateback.mapper.TeacherMapper">
+    <resultMap id="TeacherResultMap" type="com.sdu.graduateback.dto.Teacher">
+        <result property="name" column="user_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="gender"  column="sex" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="age" column="age" javaType="java.lang.Integer" jdbcType="INT"/>
+        <result property="rank" column="title" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="direction" column="tend" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="eduback" column="education" javaType="java.lang.String" jdbcType="TEXT" />
+        <result property="award" column="award" javaType="java.lang.String" jdbcType="TEXT" />
+    </resultMap>
+    <select id="get_teacher" parameterType="java.lang.Integer" resultMap="TeacherResultMap" resultType="com.sdu.graduateback.dto.Teacher">
+        select * from teacher where user_id=#{id}
+    </select>
+</mapper>
+

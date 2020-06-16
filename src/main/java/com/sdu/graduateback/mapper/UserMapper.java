@@ -8,5 +8,8 @@
 
 package com.sdu.graduateback.mapper;
 
-public class UserMapper {
+import com.sdu.graduateback.dto.User;
+
+public interface UserMapper {
+    User get_user(int user_id);
 }

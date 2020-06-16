@@ -98,29 +98,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/unbind",method = RequestMethod.POST)
-    @ResponseBody
-    public Result unbind(@RequestBody User user){
 
-        String token=user.getToken();
-
-        String code=user.getCode();
-
-        String openId=user.getOpenid();
-
-        if(StringUtil.isEmpty(token)||(StringUtil.isEmpty(code)&&StringUtil
-        .isEmpty(openId)))
-            return ErrorUtil.getErrorReport("参数有误");
-
-        if(!StringUtil.isEmpty(code))
-            openId=HttpUtils.getOpenId(code);
-
-        User obj=userService.userUnbindPack(userService.getUserByOpenid(openId));
-
-        userService.updateUser(user);
-
-        return null;
-    }
 
 
 }

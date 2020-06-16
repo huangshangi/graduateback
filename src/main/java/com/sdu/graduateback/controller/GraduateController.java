@@ -53,8 +53,7 @@ public class GraduateController {
             return null;
         }else{
 
-            graduateService.updateGraduateByType(graduate.getI(),
-                    graduate.getT(),graduate.getO());
+            graduateService.updateGraduateByType(graduate.getT(),graduate.getO());
 
             return null;
         }
