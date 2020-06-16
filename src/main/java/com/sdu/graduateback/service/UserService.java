@@ -39,8 +39,8 @@ public interface UserService {
 
     int updateOpenIdByToken(String openId,String token);
 
-    int updateUser(User user,String id);
+    int updateUser(User user);
 
-
+    User userUnbindPack(User user);
 
 }

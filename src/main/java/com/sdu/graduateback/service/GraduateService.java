@@ -18,6 +18,6 @@ public interface GraduateService {
 
     int updateGraduate(Graduate graduate);
 
-    int updateGraduateByType(String type,String value);
+    int updateGraduateByType(String id,String type,String value);
 
 }

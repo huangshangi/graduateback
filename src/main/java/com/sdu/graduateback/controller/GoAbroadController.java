@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020
- * Date:2020/06/16 12:57:16
+ * Date:2020/06/16 14:49:16
  * Author:huangshangi
  * explain:
  *
@@ -8,11 +8,11 @@
 
 package com.sdu.graduateback.controller;
 
+
 import com.sdu.graduateback.dto.Graduate;
 import com.sdu.graduateback.dto.Result;
-import com.sdu.graduateback.dto.Thesis;
-import com.sdu.graduateback.service.GraduateService;
-import com.sdu.graduateback.service.ThesisService;
+import com.sdu.graduateback.dto.Student;
+import com.sdu.graduateback.service.StudentService;
 import com.sdu.graduateback.service.UserService;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.StringUtil;
@@ -25,41 +25,37 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-public class GraduateController {
+public class GoAbroadController {
 
     UserService userService;
 
-    ThesisService thesisService;
+    StudentService studentService;
 
-    GraduateService graduateService;
-
-    @RequestMapping(value = "/gradeval",method = RequestMethod.POST)
+    @RequestMapping(value = "/abroeval",method = RequestMethod.POST)
     @ResponseBody
-    public Result gradeval(@RequestBody Graduate graduate){
+    public Result abroeval(@RequestBody Graduate graduate){
 
         String token=graduate.getToken();
+        String teacherId=userService.getIdByToken(token);
+
         if(StringUtil.isEmpty(token))
             return ErrorUtil.getErrorReport("参数错误");
 
-        String teacherId=userService.getIdByToken(token);
 
         if(StringUtil.graduateSelect(graduate)){
-            //查询
-            List<Thesis> list=thesisService.getThesisByTeacherId(teacherId);
+            //查询操作
+            //获取该导师所有学生
+            List<Student> list=studentService.getStudentListByTeacherId(teacherId);
 
-            //进行数据组装 未实现
-            thesisService.thesisPack(list);
+            //根据学生id查询出国信息
 
-            return null;
-        }else{
+            //根据学生id查询审核状态
 
-            graduateService.updateGraduateByType(graduate.getI(),
-                    graduate.getT(),graduate.getO());
 
-            return null;
         }
 
 
-
+        return null;
     }
+
 }
