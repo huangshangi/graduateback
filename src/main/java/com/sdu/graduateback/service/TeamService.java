@@ -22,5 +22,7 @@ public interface TeamService {
 
     int deleMember(String tid,String id);
 
+    Team getTeamById(String id);
 
+    Team teamPack(Team oldT,Team newT);
 }

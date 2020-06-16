@@ -8,8 +8,10 @@
 
 package com.sdu.graduateback.utils;
 
+import com.sdu.graduateback.dto.Graduate;
 import com.sdu.graduateback.dto.RecuritQualification;
 import com.sdu.graduateback.dto.Teacher;
+import com.sdu.graduateback.dto.Team;
 
 public class StringUtil {
 
@@ -33,4 +35,16 @@ public class StringUtil {
         return false;
 
     }
+
+
+    public static boolean teamSelect(Team team){
+        return false;
+    }
+
+
+    public static boolean graduateSelect(Graduate graduate){
+        return false;
+    }
+
+
 }

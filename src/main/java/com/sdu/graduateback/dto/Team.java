@@ -14,13 +14,18 @@ public class Team {
 
     String id;//管理者工号
 
-    String ti;
+    String ti;//团队介绍
 
-    String tn;
+    String tn;//团队名称
 
-    String tml;
+    String tml;//团队成员列表
 
+    //下列字段不该储存在数据库中
     String token;
+
+    String type;
+
+    String personId;
 
 
     public String getId() {
