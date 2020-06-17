@@ -8,9 +8,6 @@
 
 package com.sdu.graduateback.controller;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.sdu.graduateback.dto.Ceshi;
-import com.sdu.graduateback.dto.Error;
 import com.sdu.graduateback.dto.Result;
 import com.sdu.graduateback.dto.User;
 import com.sdu.graduateback.service.UserService;
@@ -19,7 +16,6 @@ import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.HttpUtils;
 import com.sdu.graduateback.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -90,7 +86,7 @@ public class UserController {
             String t=userService.getTokenByOpenid(openid);
             hashMap.put("token",t);
             return new Result("success",null,hashMap);
-            //return new Result("success",null,t);
+
         }
 
 

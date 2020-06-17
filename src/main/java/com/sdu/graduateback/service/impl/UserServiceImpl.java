@@ -21,63 +21,64 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public User addUser(User user) {
-        return null;
+    public int addUser(User user) {
+
+        return userMapper.addUser(user);
     }
 
     @Override
     public User getUserByToken(String token) {
-        return null;
+        return userMapper.getUserByToken(token);
     }
 
     @Override
     public User getUserById(String id) {
-        return null;
+        return userMapper.getUserById(id);
     }
 
     @Override
     public User getUserByOpenid(String openid) {
-        return null;
+        return userMapper.getUserByOpenid(openid);
     }
 
     @Override
     public int verifyUser(String id, String pass) {
-        Integer res=userMapper.login(id,pass);
-        return res==null?0:res;
+
+        return userMapper.login(id,pass);
     }
 
     @Override
     public String getTokenByOpenid(String openid) {
-        return null;
+        return userMapper.getUserByOpenid(openid).getToken();
     }
 
     @Override
     public String getIdByToken(String token) {
-        return null;
+        return userMapper.getUserByToken(token).getU();
     }
 
     @Override
     public int verifyUser(String openid) {
-        return 0;
+        return userMapper.verifyOpenid(openid);
     }
 
     @Override
     public int updateOpenid(String openid, String id) {
-        return 0;
+        return userMapper.updateOpenid(openid,id);
     }
 
     @Override
     public int updateToken(String token, String id) {
-        return 0;
+        return userMapper.updateToken(token, id);
     }
 
     @Override
     public int updateOpenIdByToken(String openId, String token) {
-        return 0;
+        return userMapper.updateOpenIdByToken(openId, token);
     }
 
     @Override
-    public int updateUser(User user, String id) {
-        return 0;
+    public int updateUser(User user) {
+        return userMapper.updateUser(user);
     }
 }

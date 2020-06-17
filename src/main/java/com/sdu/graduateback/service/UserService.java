@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public interface UserService {
 
     //向user表中添加
-    User addUser(User user);
+    int addUser(User user);
 
     //根据token查询用户
     User getUserByToken(String token);
@@ -41,7 +41,7 @@ public interface UserService {
 
     int updateOpenIdByToken(String openId,String token);
 
-    int updateUser(User user,String id);
+    int updateUser(User user);
 
 
 

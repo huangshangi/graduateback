@@ -8,5 +8,5 @@
 
 package com.sdu.graduateback.mapper;
 
-public class RecuritQualificationMapper {
+public interface RecuritQualificationMapper {
 }
