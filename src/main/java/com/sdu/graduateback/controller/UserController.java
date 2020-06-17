@@ -55,9 +55,9 @@ public class UserController {
 
         String name=user.getU();
         String pass=user.getP();
-        String openid=user.getOpenid();
+
         String code=user.getCode();
-        String token=user.getToken();
+
         Map<String,String>hashMap=new HashMap<>();
 
         int result=0;
@@ -81,15 +81,11 @@ public class UserController {
 
         }else if(!StringUtil.isEmpty(code)){
             //使用code请求openid
-            openid=HttpUtils.getOpenId(code);
+            String openid=HttpUtils.getOpenId(code);
             String t=userService.getTokenByOpenid(openid);
             hashMap.put("token",t);
             return new Result("success",null,hashMap);
             //return new Result("success",null,t);
-        }else if(!StringUtil.isEmpty(openid)){
-            token=userService.getTokenByOpenid(openid);
-            hashMap.put("token",token);
-            return new Result("success",null,hashMap);
         }
 
 

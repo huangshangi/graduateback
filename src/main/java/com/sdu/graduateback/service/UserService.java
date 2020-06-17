@@ -9,7 +9,9 @@
 package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserService {
 
     //向user表中添加

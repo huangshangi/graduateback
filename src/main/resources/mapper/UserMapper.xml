@@ -6,14 +6,14 @@
 <mapper namespace="com.sdu.graduateback.mapper.UserMapper">
     <resultMap id="UserResultMap" type="com.sdu.graduateback.dto.User">
 
-        <result property="user_id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+
         <result property="u" column="user_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="p"  column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        <result property="user_type" column="user_type" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="token" column="token" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="openid" column="wei_chat" javaType="java.lang.String" jdbcType="VARCHAR"/>
     </resultMap>
-    <select id="login" resultMap="UserResultMap" >
-        select * from user where id=#{id} and password=#{pass}
+    <select id="login" resultMap="Integer" >
+        select sum(1) from user where id=#{id} and password=#{pass}
     </select>
 
 
