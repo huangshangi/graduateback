@@ -17,6 +17,6 @@ import org.mybatis.spring.annotation.MapperScan;
 public interface UserMapper {
 
 
-    User login(@Param(value = "id") String id,@Param(value = "pass") String pass);
+    int login(@Param(value = "id") String id,@Param(value = "pass") String pass);
 
 }

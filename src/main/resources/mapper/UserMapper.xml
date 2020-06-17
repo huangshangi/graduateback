@@ -12,8 +12,8 @@
         <result property="token" column="token" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="openid" column="wei_chat" javaType="java.lang.String" jdbcType="VARCHAR"/>
     </resultMap>
-    <select id="login" resultMap="Integer" >
-        select sum(1) from user where id=#{id} and password=#{pass}
+    <select id="login" resultType="Integer" >
+        select count(1) from user where id=#{id} and password=#{pass}
     </select>
 
 

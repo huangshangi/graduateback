@@ -18,6 +18,7 @@ import com.sdu.graduateback.utils.EncryptUtil;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.HttpUtils;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,7 @@ import java.util.Map;
 @Controller
 public class UserController {
 
+    @Autowired
     UserService userService;
 
     @RequestMapping(value = "/bind",method = RequestMethod.POST)
@@ -65,9 +67,12 @@ public class UserController {
         if(!StringUtil.isEmpty(name)&&!StringUtil.isEmpty(pass)){
             //未绑定账号登录过程
 
-            if((result=userService.verifyUser(name,pass))==0)
+            if((result=userService.verifyUser(name,pass))==0){
                 //登录失败
+
                 return ErrorUtil.getErrorReport("用户名或密码错误");
+            }
+
             else{
                 //登录成功生成token
                 String t=EncryptUtil.generateToken(name);

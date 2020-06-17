@@ -14,7 +14,7 @@ import com.sdu.graduateback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -42,7 +42,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int verifyUser(String id, String pass) {
-        return 0;
+        Integer res=userMapper.login(id,pass);
+        return res==null?0:res;
     }
 
     @Override
