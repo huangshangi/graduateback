@@ -8,7 +8,16 @@
 
 package com.sdu.graduateback.service;
 
+import com.sdu.graduateback.dto.Recurit;
+
 public interface RecuritService {
+
+    Recurit getRecuritById(String id);
+
+
+    Recurit getRecuritByScAndSt(String sc,String st);
+
+
 
 
 }

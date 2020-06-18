@@ -25,4 +25,9 @@ public interface TeamService {
     Team getTeamById(String id);
 
     Team teamPack(Team oldT,Team newT);
+
+    Object convertToTeam(Team team);
+
+    Team executeApply(Team team,String type,String personId);
+
 }

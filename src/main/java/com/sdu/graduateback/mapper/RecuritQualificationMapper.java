@@ -8,5 +8,14 @@
 
 package com.sdu.graduateback.mapper;
 
+import com.sdu.graduateback.dto.RecuritQualification;
+
 public interface RecuritQualificationMapper {
+
+    RecuritQualification getById(String id);
+
+    int updateRecuritQualification(RecuritQualification recuritQualification);
+
+
+
 }

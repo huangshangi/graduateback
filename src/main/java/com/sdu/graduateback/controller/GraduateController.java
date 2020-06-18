@@ -10,6 +10,7 @@ package com.sdu.graduateback.controller;
 
 import com.sdu.graduateback.dto.Graduate;
 import com.sdu.graduateback.dto.Result;
+import com.sdu.graduateback.dto.Student;
 import com.sdu.graduateback.dto.Thesis;
 import com.sdu.graduateback.service.GraduateService;
 import com.sdu.graduateback.service.ThesisService;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
 
@@ -38,13 +40,25 @@ public class GraduateController {
     public Result gradeval(@RequestBody Graduate graduate){
 
         String token=graduate.getToken();
-        if(StringUtil.isEmpty(token))
+        String type=graduate.getT();
+
+        if(StringUtil.isEmpty(token)&&StringUtil.isEmpty(type))
             return ErrorUtil.getErrorReport("参数错误");
 
         String teacherId=userService.getIdByToken(token);
 
         if(StringUtil.graduateSelect(graduate)){
             //查询
+
+            //毕业申请审核
+            if(type.equals("0")){
+                List<Student>list=graduateService.getStudentsApp(teacherId);
+                Object obj=graduateService.convertStudentsJson(list);
+
+            }else if(type.equals("1")){
+
+            }
+
             List<Thesis> list=thesisService.getThesisByTeacherId(teacherId);
 
             //进行数据组装 未实现

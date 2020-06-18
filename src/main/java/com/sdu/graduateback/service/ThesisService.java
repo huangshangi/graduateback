@@ -24,7 +24,7 @@ public interface ThesisService {
     List<Thesis> getThesisByTeacherId(String id);
 
 
-    void thesisPack(List<Thesis>list);
+    Object thesisPack(List<Thesis>list);
 
 
 }

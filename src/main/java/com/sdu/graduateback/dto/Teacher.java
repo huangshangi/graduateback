@@ -18,13 +18,15 @@ public class Teacher {
 
     private String gender;//性别
 
-    private int age;//年龄
+    private String age;//年龄
 
     private String rank;//职称
 
     private String dirction;//研究方向
 
     private String eduback;//教育背景
+
+    private String unit;//所在单位
 
     private String token;//该字段不应再数据库中出现
 
@@ -52,11 +54,11 @@ public class Teacher {
         this.gender = gender;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -101,5 +103,13 @@ public class Teacher {
     }
     public String toString(){
         return name;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 }

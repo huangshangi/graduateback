@@ -8,5 +8,11 @@
 
 package com.sdu.graduateback.mapper;
 
+import com.sdu.graduateback.dto.Recurit;
+
 public interface RecuritMapper {
+
+    Recurit getRecuritById(String id);
+
+    Recurit getRecuritByScAndSt(String sc,String st);
 }

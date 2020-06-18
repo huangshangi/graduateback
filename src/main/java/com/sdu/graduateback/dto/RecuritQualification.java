@@ -8,6 +8,8 @@
 
 package com.sdu.graduateback.dto;
 
+import com.sun.istack.internal.NotNull;
+
 public class RecuritQualification {
 
 
@@ -52,6 +54,49 @@ public class RecuritQualification {
 
     private String tId;
 
+    public static RecuritQualification getJsonResult(String id, String pc, String bc, String ac,
+                                              String ic, String tc, String dc, String nc,
+                                              String npc, String ppc, String nppc, String cpc,
+                                              String dsc, String msc, String hgdsc) {
+
+        return new RecuritQualification(id,pc,bc,ac,ic,tc,dc,nc,npc,ppc,nppc,cpc,dsc,
+                msc,hgdsc,null,null,null,null,null);
+    }
+
+
+    public static RecuritQualification getJsonResult(RecuritQualification recuritQualification){
+
+        return getJsonResult(recuritQualification.getId(),recuritQualification.getPc(),recuritQualification.getBc(),
+                recuritQualification.getAc(),recuritQualification.getIc(),recuritQualification.getTc(),recuritQualification.getDc(),recuritQualification.getNc(),
+                recuritQualification.getNpc(),recuritQualification.getPpc(),recuritQualification.getNppc(),recuritQualification.getCpc(),
+                recuritQualification.getDsc(),recuritQualification.getMsc(),recuritQualification.getHgdsc());
+    }
+
+    public RecuritQualification(String id, String pc, String bc, String ac, String ic,
+                                String tc, String dc, String nc, String npc, String ppc,
+                                String nppc, String cpc, String dsc, String msc, String hgdsc,
+                                String loma, String nloma, String token, String t, String tId) {
+        this.id = id;
+        this.pc = pc;
+        this.bc = bc;
+        this.ac = ac;
+        this.ic = ic;
+        this.tc = tc;
+        this.dc = dc;
+        this.nc = nc;
+        this.npc = npc;
+        this.ppc = ppc;
+        this.nppc = nppc;
+        this.cpc = cpc;
+        this.dsc = dsc;
+        this.msc = msc;
+        this.hgdsc = hgdsc;
+        this.loma = loma;
+        this.nloma = nloma;
+        this.token = token;
+        this.t = t;
+        this.tId = tId;
+    }
 
     public String getId() {
         return id;

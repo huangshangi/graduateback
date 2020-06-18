@@ -15,7 +15,7 @@ public interface TeacherService {
 
     Teacher getTeacherById(String id);
 
-    int updateTeacher(Teacher teacher,String id);
+    int updateTeacher(Teacher teacher);
 
     Teacher teacherPack(Teacher oldT,Teacher newT);
 }

@@ -17,7 +17,7 @@ public class StringUtil {
 
     public static boolean isEmpty(String s){
 
-        return s==null||s.isEmpty();
+        return s==null||s.length()==0;
     }
 
 
@@ -25,25 +25,30 @@ public class StringUtil {
 
 
         return isEmpty(teacher.getAward())&&isEmpty(teacher.getDirction())&&isEmpty(teacher.getEduback())
-                &&isEmpty(teacher.getGender())&&isEmpty(teacher.getRank());
+                &&isEmpty(teacher.getGender())&&isEmpty(teacher.getRank())&&isEmpty(teacher.getAge());
 
 
     }
 
     public static boolean recuritQualiSelect(RecuritQualification obj){
 
-        return false;
+        return isEmpty(obj.getPc())&&isEmpty(obj.getBc())&&isEmpty(obj.getAc())&&isEmpty(obj.getIc())
+                &&isEmpty(obj.getTc())&&isEmpty(obj.getDc())&&isEmpty(obj.getNc())&&isEmpty(obj.getNpc())
+                &&isEmpty(obj.getPpc())&&isEmpty(obj.getCpc())&&isEmpty(obj.getDsc())&&isEmpty(obj.getMsc())
+                &&isEmpty(obj.getHgdsc())&&isEmpty(obj.getT())&&isEmpty(obj.gettId())&&isEmpty(obj.getNppc());
 
     }
 
 
     public static boolean teamSelect(Team team){
-        return false;
+
+        return isEmpty(team.getTn())&&isEmpty(team.getTi())&&
+                isEmpty(team.getType())&&isEmpty(team.getPersonId());
     }
 
 
     public static boolean graduateSelect(Graduate graduate){
-        return false;
+        return isEmpty(graduate.getO())&&isEmpty(graduate.getI());
     }
 
 

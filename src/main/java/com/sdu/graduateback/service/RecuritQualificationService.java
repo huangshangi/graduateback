@@ -23,11 +23,11 @@ public interface RecuritQualificationService {
 
     RecuritQualification  recuritQualificationPack(RecuritQualification oldR,RecuritQualification newR);
 
-    int updateRecuritQualificationById(RecuritQualification recuritQualification,String id);
+    int updateRecuritQualification(RecuritQualification recuritQualification);
 
     int deleApply(String tid);
 
     int addApply(String tid);
 
-    int executeApply(String type,String tid);
+    RecuritQualification executeApply(RecuritQualification recuritQualification,String type,String tid);
 }

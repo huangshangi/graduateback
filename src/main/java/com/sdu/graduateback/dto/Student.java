@@ -20,6 +20,9 @@ public class Student {
 
     String t;//学生导师工号
 
+    //该字段不应储存在数据库中
+    String status;//审核状态
+
     public String getI() {
         return i;
     }
@@ -58,5 +61,13 @@ public class Student {
 
     public void setT(String t) {
         this.t = t;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

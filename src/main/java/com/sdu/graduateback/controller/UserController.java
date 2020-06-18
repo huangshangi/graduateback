@@ -30,7 +30,9 @@ public class UserController {
 
     @RequestMapping(value = "/bind",method = RequestMethod.POST)
     @ResponseBody
-    public Result bind(@RequestParam String token,@RequestParam String code){
+    public Result bind(@RequestBody User user){
+        String token=user.getToken();
+        String code=user.getCode();
         HashMap<String,String>map=new HashMap<>();
         if(!StringUtil.isEmpty(token)&&!StringUtil.isEmpty(code)){
             String openId=HttpUtils.getOpenId(code);
@@ -94,6 +96,35 @@ public class UserController {
         return ErrorUtil.getErrorReport("传入参数的有误");
     }
 
+
+    @RequestMapping(value = "/unbind",method = RequestMethod.POST)
+    @ResponseBody
+    public Result unbind(@RequestBody User user){
+        String token=user.getToken();
+        String openId=user.getOpenid();
+        String code=user.getCode();
+        HashMap<String,String>map=new HashMap<>();
+        String id;
+        if(StringUtil.isEmpty(token)&&StringUtil.isEmpty(openId)&&StringUtil.isEmpty(code))
+            return ErrorUtil.getErrorReport("参数有误");
+        else{
+            if(!StringUtil.isEmpty(code)){
+                openId=HttpUtils.getOpenId(code);
+                id=userService.getTokenByOpenid(openId);
+            }else if(!StringUtil.isEmpty(token))
+                id=userService.getIdByToken(token);
+            else
+                id=userService.getIdByOpenid(openId);
+
+
+            userService.updateOpenid("",id);
+            userService.updateToken("",id);
+            return new Result("success",null,null);
+        }
+
+
+
+    }
 
 
 

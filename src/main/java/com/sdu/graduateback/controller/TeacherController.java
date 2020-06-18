@@ -32,8 +32,13 @@ public class TeacherController {
     @RequestMapping(value = "/tinfo",method = RequestMethod.POST)
     @ResponseBody
     public Result checkInfos(@RequestBody Teacher teacher){
+        String token=teacher.getToken();
+        if(StringUtil.isEmpty(token))
+            return ErrorUtil.getErrorReport("参数错误");
+
+
         Map<String,Object> map=new HashMap<>();
-        teacher.setId(userService.getIdByToken(teacher.getToken()));
+        teacher.setId(userService.getIdByToken(token));
         Teacher obj=teacherService.getTeacherById(teacher.getId());
         if(StringUtil.teacherSelect(teacher)){
 
@@ -49,7 +54,7 @@ public class TeacherController {
         }else{
 
             //更新教师信息
-            int result=teacherService.updateTeacher(teacherService.teacherPack(teacher,obj),teacher.getId());
+            int result=teacherService.updateTeacher(teacherService.teacherPack(teacher,obj));
             //信息组装
             if(result==1){
                 map.put("result","更新成功");

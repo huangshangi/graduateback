@@ -12,7 +12,7 @@ public class Team {
 
 
 
-    int id;//管理者工号
+    String id;//管理者工号
 
     String ti;//团队介绍
 
@@ -28,11 +28,11 @@ public class Team {
     String personId;
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -66,5 +66,22 @@ public class Team {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId = personId;
     }
 }

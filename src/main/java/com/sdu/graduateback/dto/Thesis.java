@@ -22,6 +22,9 @@ public class Thesis {
 
     String a;//导师id
 
+    //以下字段不应再数据库中储存
+    String status;//论文审核状态
+
     public String getI() {
         return i;
     }
@@ -61,5 +64,13 @@ public class Thesis {
 
     public void setA(String a) {
         this.a = a;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

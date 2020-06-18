@@ -7,8 +7,11 @@
  */
 
 package com.sdu.graduateback.dto;
-
+/*所有审核字段应遵循的规则
+ *0->未申请审核 1->已申请审核但未被处理 2->已申请审核 已被处理但未通过 3->已申请审核 已被处理已通过
+ */
 public class Graduate {
+
 
     String i;//论文拥有者id
 

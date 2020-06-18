@@ -33,6 +33,8 @@ public interface UserService {
 
     String getIdByToken(String token);
 
+    String getIdByOpenid(String openid);
+
     int verifyUser(String openid);
 
     int updateOpenid(String openid,String id);

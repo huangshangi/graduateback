@@ -30,43 +30,40 @@ public class RecuritController {
 
     UserService userService;
 
-    @RequestMapping(value = "/tinfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/recurit",method = RequestMethod.POST)
     @ResponseBody
     public Result recurit(@RequestBody RecuritQualification obj){
+
         if(StringUtil.isEmpty(obj.getToken()))
             return ErrorUtil.getErrorReport("参数有误");
 
         String id=userService.getIdByToken(obj.getToken());
 
-        RecuritQualification oldObj=recuritQualificationService.getById(id);
+        RecuritQualification newObj=recuritQualificationService.getById(id);
 
-        if(oldObj==null)
+        if(newObj==null)
             return ErrorUtil.getErrorReport("参数有误");
 
         Map<String,Object> map=new HashMap<>();
 
         if(StringUtil.recuritQualiSelect(obj)){
             //查询操作
-            Object object=recuritQualificationService.convertJson(oldObj);
+            Object object=recuritQualificationService.convertJson(newObj);
             map.put("result",object);
             return new Result("success",null,map);
         }else{
             //更新操作
-            RecuritQualification newR=recuritQualificationService.recuritQualificationPack(obj,oldObj);
+            RecuritQualification newR=recuritQualificationService.recuritQualificationPack(obj,newObj);
 
             if(!StringUtil.isEmpty(newR.getT())){
                 String type=newR.getT();
                 String tId=newR.gettId();
-                if(recuritQualificationService.executeApply(type,tId)!=1)
-                    return ErrorUtil.getErrorReport("更新数据时发生错误");
-                else{
-                    map.put("result","更新数据成功");
-                    return new Result("success",null,map);
-                }
+                newR=recuritQualificationService.executeApply(newR,type,tId);
+
             }
 
 
-            if(recuritQualificationService.updateRecuritQualificationById(newR,newR.getId())!=1)
+            if(recuritQualificationService.updateRecuritQualification(newR)!=1)
                 return ErrorUtil.getErrorReport("更新数据时发生错误");
             else{
                 map.put("result","更新数据成功");
