@@ -8,10 +8,7 @@
 
 package com.sdu.graduateback.utils;
 
-import com.sdu.graduateback.dto.Graduate;
-import com.sdu.graduateback.dto.RecuritQualification;
-import com.sdu.graduateback.dto.Teacher;
-import com.sdu.graduateback.dto.Team;
+import com.sdu.graduateback.dto.*;
 
 public class StringUtil {
 
@@ -49,6 +46,12 @@ public class StringUtil {
 
     public static boolean graduateSelect(Graduate graduate){
         return isEmpty(graduate.getO())&&isEmpty(graduate.getI());
+    }
+
+    public static boolean awardSele(Award award){
+
+        return isEmpty(award.getD())&&isEmpty(award.getN())&&isEmpty(award.getT())
+                ;
     }
 
 

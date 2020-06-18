@@ -12,6 +12,7 @@ import com.sdu.graduateback.dto.Graduate;
 import com.sdu.graduateback.dto.Result;
 import com.sdu.graduateback.dto.Student;
 import com.sdu.graduateback.dto.TranPlan;
+import com.sdu.graduateback.service.GraduateService;
 import com.sdu.graduateback.service.StudentService;
 import com.sdu.graduateback.service.TranPlanService;
 import com.sdu.graduateback.service.UserService;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -34,10 +36,13 @@ public class TranPlanController {
 
     StudentService studentService;
 
+    GraduateService graduateService;
+
     @RequestMapping(value = "/tranplan",method = RequestMethod.POST)
     @ResponseBody
     public Result tranplan(@RequestBody Graduate graduate){
         String token=graduate.getToken();
+        HashMap<String,Object>map=new HashMap<>();
 
         if(StringUtil.isEmpty(token))
             return ErrorUtil.getErrorReport("参数错误");
@@ -45,19 +50,27 @@ public class TranPlanController {
         String teacherId=userService.getIdByToken(token);
 
         if(StringUtil.graduateSelect(graduate)){
-            //查询操作
-            //获取该导师所有学生
-            List<Student> list=studentService.getStudentListByTeacherId(teacherId);
 
-            //根据学生id查询培养计划信息
+            List<TranPlan>list=tranPlanService.getTranPlans(teacherId);
+            Object obj=tranPlanService.convertTranPlanToJson(list);
+            map.put("result",obj);
 
-            //根据学生id查询审核状态
+            return new Result("success",null,map);
+
         }else{
-            //更新
+            if(StringUtil.isEmpty(graduate.getO())){
+                map.put("result",tranPlanService.getTranPlanById(graduate.getI()));
+                return new Result("success",null,map);
+            }
 
+
+            //更新
+            if(graduateService.updateGraduateByTType(graduate.getI(),graduate.getO())==1)
+                return new Result("success",null,null);
+            else
+                return ErrorUtil.getErrorReport("参数错误");
         }
 
-        return null;
 
     }
 

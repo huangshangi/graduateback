@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.thymeleaf.util.StringUtils;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -38,10 +39,10 @@ public class GraduateController {
     @RequestMapping(value = "/gradeval",method = RequestMethod.POST)
     @ResponseBody
     public Result gradeval(@RequestBody Graduate graduate){
+        HashMap<String,Object>map=new HashMap<>();
 
         String token=graduate.getToken();
         String type=graduate.getT();
-
         if(StringUtil.isEmpty(token)&&StringUtil.isEmpty(type))
             return ErrorUtil.getErrorReport("参数错误");
 
@@ -49,28 +50,33 @@ public class GraduateController {
 
         if(StringUtil.graduateSelect(graduate)){
             //查询
-
+            Object obj = null;
             //毕业申请审核
             if(type.equals("0")){
                 List<Student>list=graduateService.getStudentsApp(teacherId);
-                Object obj=graduateService.convertStudentsJson(list);
+                obj=graduateService.convertStudentsJson(list);
 
             }else if(type.equals("1")){
                 List<Thesis> list=thesisService.getThesisWai(teacherId);
-                Object obj=graduateService.con
+                obj=graduateService.convertThesissJson(list);
+            }else if(type.equals("2")){
+                List<Thesis> list=thesisService.getThesisBi(teacherId);
+                obj=graduateService.convertThesissJson(list);
             }
 
+            map.put("result",obj);
+            return new Result("success",null,map);
 
 
-            //进行数据组装 未实现
-            thesisService.thesisPack(list);
-
-            return null;
         }else{
+            String o=graduate.getO();
+            String i=graduate.getI();
 
-            graduateService.updateGraduateByType(graduate.getT(),graduate.getO());
 
-            return null;
+            if(graduateService.updateGraduateByGType(i,type,o)==1)
+                return new Result("success",null,null);
+            else
+                return ErrorUtil.getErrorReport("参数错误");
         }
 
 

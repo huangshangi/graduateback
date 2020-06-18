@@ -46,12 +46,64 @@ public class GraduateServiceImpl implements GraduateService {
 
     @Override
     public int updateGraduate(Graduate graduate) {
-        return 0;
+        return graduateMapper.updateGraduateById(graduate);
     }
 
     @Override
-    public int updateGraduateByType(String type, String value) {
-        return 0;
+    public int updateGraduateByAType(String id, String type, String value) {
+        Graduate graduate=graduateMapper.getGraduateById(id);
+        if(value.equals("0"))
+            value="3";
+        else if(value.equals("1"))
+            value="2";
+        else if(value.equals("2"))
+            value="0";
+
+        if(type.equals("0"))
+            graduate.setTa(value);
+        else if(type.equals("1"))
+            graduate.setNa(value);
+        else if(type.equals("2"))
+            graduate.setGba(value);
+        else
+            graduate.setBa(value);
+
+        return updateGraduate(graduate);
+    }
+
+    @Override
+    public int updateGraduateByGType(String id, String type, String value) {
+        Graduate graduate=graduateMapper.getGraduateById(id);
+        if(value.equals("0"))
+            value="3";
+        else if(value.equals("1"))
+            value="2";
+        else if(value.equals("2"))
+            value="0";
+
+
+        if(type.equals("0"))
+            graduate.setGa(value);
+        else if(type.equals("1"))
+            graduate.setE(value);
+        else
+            graduate.setGp(value);
+        return updateGraduate(graduate);
+    }
+
+    @Override
+    public int updateGraduateByTType(String id, String value) {
+
+        Graduate graduate=graduateMapper.getGraduateById(id);
+        if(value.equals("0"))
+            value="3";
+        else if(value.equals("1"))
+            value="2";
+        else if(value.equals("2"))
+            value="0";
+        graduate.setTpa(value);
+
+        return updateGraduate(graduate);
     }
 
     @Override
@@ -107,4 +159,6 @@ public class GraduateServiceImpl implements GraduateService {
 
         return map;
     }
+
+
 }

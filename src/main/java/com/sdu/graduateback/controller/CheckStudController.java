@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class CheckStudController {
@@ -31,6 +32,8 @@ public class CheckStudController {
     @RequestMapping(value = "/checkstud",method = RequestMethod.POST)
     @ResponseBody
     public Result checkstud(@RequestBody StudentInfo studentInfo){
+        HashMap<String,Object>map=new HashMap<>();
+
         String token=studentInfo.getToken();
         String i=studentInfo.getI();
         String teacherId=userService.getIdByToken(token);
@@ -43,15 +46,15 @@ public class CheckStudController {
             //查询所有学生操作
 
             List<Student> list=studentService.getStudentListByTeacherId(teacherId);
+            map.put("result",list);
 
-            //组装操作未实现
 
-            return null;
+            return new Result("success",null,map);
         }else{
             //查询单个学生信息
             Student student=studentService.getStudentById(i);
-
-            return null;
+            map.put("result",student);
+            return new Result("success",null,map);
         }
 
 

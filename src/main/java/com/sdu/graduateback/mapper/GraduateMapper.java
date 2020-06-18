@@ -14,4 +14,6 @@ public interface GraduateMapper {
 
     Graduate getGraduateById(String id);
 
+    int updateGraduateById(Graduate graduate);
+
 }

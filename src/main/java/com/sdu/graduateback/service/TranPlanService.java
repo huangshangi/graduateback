@@ -10,6 +10,8 @@ package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.TranPlan;
 
+import java.util.List;
+
 public interface TranPlanService {
 
     int addTranPlan(TranPlan tranPlan);
@@ -17,6 +19,10 @@ public interface TranPlanService {
     int deleteTranPaln(TranPlan tranPlan);
 
     TranPlan getTranPlanById(String id);
+
+    List<TranPlan> getTranPlans(String teacherId);
+
+    Object convertTranPlanToJson(List<TranPlan>list);
 
 
 }
