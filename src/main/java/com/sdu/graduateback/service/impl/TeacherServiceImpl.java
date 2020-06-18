@@ -27,7 +27,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public int updateTeacher(Teacher teacher) {
-        return teacherMapper.updateTeacher(teacher,teacher.getId());
+        return teacherMapper.updateTeacher(teacher);
     }
 
     @Override

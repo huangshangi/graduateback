@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间.与StudentMapper绑定-->
+<mapper namespace="com.sdu.graduateback.mapper.TeacherMapper">
+    <resultMap id="TeacherResultMapper" type="com.sdu.graduateback.dto.Teacher" >
+        <result property="id" column="id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="name" column="t_name" javaType="String" jdbcType="VARCHAR"/>
+        <result property="award" column="award" javaType="String" jdbcType="VARCHAR"/>
+        <result property="gender" column="sex" javaType="String" jdbcType="VARCHAR"/>
+        <result property="age" column="age" javaType="String" jdbcType="VARCHAR"/>
+        <result property="rank" column="title" javaType="String" jdbcType="VARCHAR"/>
+        <result property="dirction" column="tend" javaType="String" jdbcType="VARCHAR"/>
+        <result property="eduback" column="education" javaType="String" jdbcType="VARCHAR"/>
+        <result property="unit" column="unit" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getTeacherById" parameterType="String" resultMap="TeacherResultMapper" resultType="com.sdu.graduateback.dto.Teacher">
+        select * from teacher where id = #{id}
+    </select>
+    <update id="updateTeacher" parameterType="com.sdu.graduateback.dto.Teacher">
+        update teacher set t_name = #{name},award = #{award},sex = #{gender},age = #{age},title = #{rank},tend = #{dirction},education = #{eduback},unit = #{unit} where id = #{id}
+    </update>
+
+</mapper>
