@@ -10,6 +10,7 @@ package com.sdu.graduateback.service.impl;
 
 import com.sdu.graduateback.dto.Graduate;
 import com.sdu.graduateback.dto.Student;
+import com.sdu.graduateback.dto.Thesis;
 import com.sdu.graduateback.mapper.GraduateMapper;
 import com.sdu.graduateback.mapper.StudentMapper;
 import com.sdu.graduateback.mapper.TeacherMapper;
@@ -82,6 +83,24 @@ public class GraduateServiceImpl implements GraduateService {
                 ucl.add(student);
             else
                 cl.add(student);
+        }
+        map.put("cl",cl);
+        map.put("ucl",ucl);
+
+        return map;
+    }
+
+    @Override
+    public Object convertThesissJson(List<Thesis> list) {
+        Map<String,Object> map=new HashMap<>();
+        List<Thesis>cl=new ArrayList<>();
+        List<Thesis>ucl=new ArrayList<>();
+
+        for(Thesis thesis:list){
+            if(thesis.getStatus().equals("1"))
+                ucl.add(thesis);
+            else
+                cl.add(thesis);
         }
         map.put("cl",cl);
         map.put("ucl",ucl);

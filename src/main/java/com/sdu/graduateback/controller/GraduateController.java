@@ -56,10 +56,11 @@ public class GraduateController {
                 Object obj=graduateService.convertStudentsJson(list);
 
             }else if(type.equals("1")){
-
+                List<Thesis> list=thesisService.getThesisWai(teacherId);
+                Object obj=graduateService.con
             }
 
-            List<Thesis> list=thesisService.getThesisByTeacherId(teacherId);
+
 
             //进行数据组装 未实现
             thesisService.thesisPack(list);
