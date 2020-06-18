@@ -5,8 +5,6 @@
 <!--命名空间.与StudentMapper绑定-->
 <mapper namespace="com.sdu.graduateback.mapper.UserMapper">
     <resultMap id="UserResultMap" type="com.sdu.graduateback.dto.User">
-
-
         <result property="u" column="user_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="p"  column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="token" column="token" javaType="java.lang.String" jdbcType="VARCHAR"/>
@@ -15,6 +13,34 @@
     <select id="login" resultType="Integer" >
         select count(1) from user where id=#{id} and password=#{pass}
     </select>
+    <insert id="addUser" parameterType="com.sdu.graduateback.dto.User" >
+        insert into user(id,user_name,user_type,password) values(#{user_id},#{u},#{user_type},#{p})
+    </insert>
+    <select id="getUserByToken" parameterType="String" resultMap="UserResultMap" resultType="com.sdu.graduateback.dto.User">
+        select * from user where token = #{token}
+    </select>
+    <select id="getUserById" parameterType="String" resultMap="UserResultMap" resultType="com.sdu.graduateback.dto.User">
+        select * from user where id = #{id}
+    </select>
+    <select id="getUserByOpenid" parameterType="String" resultMap="UserResultMap" resultType="com.sdu.graduateback.dto.User">
+        select * from user where openid = #{openid}
+    </select>
+    <select id="verifyOpenid" parameterType="String" resultType="Integer">
+        select count(1) from user where openid = #{openid}
+    </select>
+    <update id="updateOpenid" parameterType="String">
+        update user set openid = #{openid} where id = #{id}
+    </update>
+    <update id="updateToken" parameterType="String">
+        update user set token = #{token} where id = #{id}
+    </update>
+    <update id="updateOpenIdByToken" parameterType="String">
+        update user set openid = #{openId} where token = #{token}
+    </update>
+    <update id="updateUser" parameterType="com.sdu.graduateback.dto.User">
+        update user set user_name = #{u}, user_type = #{user_type}, password = #{p}, wei_chat = #{wei_chat}, openid = #{openid}, token = #{token}, code = #{code} where id = #{user_id}
+    </update>
+
 
 
 </mapper>

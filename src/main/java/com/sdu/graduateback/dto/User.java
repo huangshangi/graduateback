@@ -15,6 +15,7 @@ public class User {
     private String user_id;
 
     private String user_type;
+    private String wei_chat;
 
     private String u;//用户名
 
@@ -26,7 +27,8 @@ public class User {
 
     private String code;//数据库中不应存储该字段
 
-
+    public void setUser_id(String id){ user_id = id;}
+    public void setUser_type(String t){user_type = t;}
     public String getU() {
         return u;
     }
