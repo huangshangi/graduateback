@@ -23,6 +23,7 @@ public class Thesis {
     String a;//导师id
 
     //以下字段不应再数据库中储存
+    String type;//论文类型 外审论文 毕业论文
     String status;//论文审核状态
 
     public String getI() {
@@ -72,5 +73,13 @@ public class Thesis {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

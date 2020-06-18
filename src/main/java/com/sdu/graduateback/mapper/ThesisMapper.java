@@ -14,5 +14,5 @@ import java.util.List;
 
 public interface ThesisMapper {
 
-    List<Thesis> getThesisByTeacherId(String id);
+    Thesis getThesisById(String id);
 }

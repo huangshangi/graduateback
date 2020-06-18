@@ -10,6 +10,7 @@ package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.Graduate;
 import com.sdu.graduateback.dto.Student;
+import com.sdu.graduateback.dto.Thesis;
 
 import java.util.List;
 
@@ -21,9 +22,15 @@ public interface GraduateService {
 
     int updateGraduate(Graduate graduate);
 
-    int updateGraduateByType(String type,String value);
+    int updateGraduateByGType(String id,String type,String value);
+
+    int updateGraduateByAType(String id,String type,String value);
+
+    int updateGraduateByTType(String id,String value);
 
     List<Student> getStudentsApp(String teacherId);
 
     Object convertStudentsJson(List<Student>list);
+
+    Object convertThesissJson(List<Thesis>list);
 }

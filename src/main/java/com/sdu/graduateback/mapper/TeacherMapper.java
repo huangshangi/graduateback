@@ -13,5 +13,6 @@ import com.sdu.graduateback.dto.Teacher;
 public interface TeacherMapper {
 
     Teacher getTeacherById(String id);
-    int updateTeacher(Teacher teacher);
+
+    int updateTeacher(Teacher teacher,String id);
 }

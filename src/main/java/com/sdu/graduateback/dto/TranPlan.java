@@ -15,6 +15,9 @@ public class TranPlan {
 
     String name;//姓名 无意义字符
 
+    String status;//审核状态
+
+
     public String getI() {
         return i;
     }
@@ -29,5 +32,13 @@ public class TranPlan {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

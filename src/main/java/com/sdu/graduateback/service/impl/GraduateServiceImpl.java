@@ -10,6 +10,7 @@ package com.sdu.graduateback.service.impl;
 
 import com.sdu.graduateback.dto.Graduate;
 import com.sdu.graduateback.dto.Student;
+import com.sdu.graduateback.dto.Thesis;
 import com.sdu.graduateback.mapper.GraduateMapper;
 import com.sdu.graduateback.mapper.StudentMapper;
 import com.sdu.graduateback.mapper.TeacherMapper;
@@ -45,12 +46,64 @@ public class GraduateServiceImpl implements GraduateService {
 
     @Override
     public int updateGraduate(Graduate graduate) {
-        return 0;
+        return graduateMapper.updateGraduateById(graduate);
     }
 
     @Override
-    public int updateGraduateByType(String type, String value) {
-        return 0;
+    public int updateGraduateByAType(String id, String type, String value) {
+        Graduate graduate=graduateMapper.getGraduateById(id);
+        if(value.equals("0"))
+            value="3";
+        else if(value.equals("1"))
+            value="2";
+        else if(value.equals("2"))
+            value="0";
+
+        if(type.equals("0"))
+            graduate.setTa(value);
+        else if(type.equals("1"))
+            graduate.setNa(value);
+        else if(type.equals("2"))
+            graduate.setGba(value);
+        else
+            graduate.setBa(value);
+
+        return updateGraduate(graduate);
+    }
+
+    @Override
+    public int updateGraduateByGType(String id, String type, String value) {
+        Graduate graduate=graduateMapper.getGraduateById(id);
+        if(value.equals("0"))
+            value="3";
+        else if(value.equals("1"))
+            value="2";
+        else if(value.equals("2"))
+            value="0";
+
+
+        if(type.equals("0"))
+            graduate.setGa(value);
+        else if(type.equals("1"))
+            graduate.setE(value);
+        else
+            graduate.setGp(value);
+        return updateGraduate(graduate);
+    }
+
+    @Override
+    public int updateGraduateByTType(String id, String value) {
+
+        Graduate graduate=graduateMapper.getGraduateById(id);
+        if(value.equals("0"))
+            value="3";
+        else if(value.equals("1"))
+            value="2";
+        else if(value.equals("2"))
+            value="0";
+        graduate.setTpa(value);
+
+        return updateGraduate(graduate);
     }
 
     @Override
@@ -88,4 +141,24 @@ public class GraduateServiceImpl implements GraduateService {
 
         return map;
     }
+
+    @Override
+    public Object convertThesissJson(List<Thesis> list) {
+        Map<String,Object> map=new HashMap<>();
+        List<Thesis>cl=new ArrayList<>();
+        List<Thesis>ucl=new ArrayList<>();
+
+        for(Thesis thesis:list){
+            if(thesis.getStatus().equals("1"))
+                ucl.add(thesis);
+            else
+                cl.add(thesis);
+        }
+        map.put("cl",cl);
+        map.put("ucl",ucl);
+
+        return map;
+    }
+
+
 }

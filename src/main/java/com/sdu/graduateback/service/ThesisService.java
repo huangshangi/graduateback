@@ -21,7 +21,9 @@ public interface ThesisService {
     int updateThesis(Thesis thesis);
 
 
-    List<Thesis> getThesisByTeacherId(String id);
+    List<Thesis> getThesisWai(String id);
+
+    List<Thesis> getThesisBi(String id);
 
 
     Object thesisPack(List<Thesis>list);
