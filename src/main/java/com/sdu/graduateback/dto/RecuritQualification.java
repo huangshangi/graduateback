@@ -8,7 +8,7 @@
 
 package com.sdu.graduateback.dto;
 
-import com.sun.istack.internal.NotNull;
+//import com.sun.istack.internal.NotNull;
 
 public class RecuritQualification {
 

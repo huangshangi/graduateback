@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间.与StudentMapper绑定-->
+<mapper namespace="com.sdu.graduateback.mapper.AwardMapper">
+    <resultMap id="AwardResultMapper" type="com.sdu.graduateback.dto.Award" >
+        <result property="i" column="award_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="personId" column="user_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="d" column="detail" javaType="String" jdbcType="VARCHAR"/>
+        <result property="n" column="title" javaType="String" jdbcType="VARCHAR"/>
+        <result property="time" column="date" javaType="String" jdbcType="VARCHAR"/>
+        <result property="t" column="type" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getAwards" parameterType="String" resultMap="AwardResultMapper" resultType="List">
+        select * from award where user_id = #{personId}
+    </select>
+    <select id="getAwardById" parameterType="String" resultMap="AwardResultMapper" resultType="com.sdu.graduateback.dto.Award">
+        select * from award where award_id = #{id}
+    </select>
+    <update id="updateAward" parameterType="com.sdu.graduateback.dto.Award">
+        update award set title = #{n} where award = #{i}
+    </update>
+</mapper>

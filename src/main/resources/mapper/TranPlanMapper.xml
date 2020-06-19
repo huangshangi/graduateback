@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间.与StudentMapper绑定-->
+<mapper namespace="com.sdu.graduateback.mapper.TranPlanMapper">
+    <resultMap id="TranPlanResultMapper" type="com.sdu.graduateback.dto.TranPlan" >
+        <result property="i" column="student_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="name" column="plan_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="status" column="state" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getTranPlanById" parameterType="String" resultMap="TranPlanResultMapper" resultType="com.sdu.graduateback.dto.TranPlan">
+        select * from plan where student_id = #{i}
+    </select>
+</mapper>

@@ -16,6 +16,7 @@
     <mappers>
         <mapper class="com.sdu.graduateback.mapper.UserMapper"/>
         <mapper class="com.sdu.graduateback.mapper.TeacherMapper"/>
+
     </mappers>
 
 </configuration>

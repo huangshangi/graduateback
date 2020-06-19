@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间.与StudentMapper绑定-->
+<mapper namespace="com.sdu.graduateback.mapper.TeamMapper">
+    <resultMap id="TeamResultMapper" type="com.sdu.graduateback.dto.Team" >
+        <result property="id" column="teacher_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="tn" column="name" javaType="String" jdbcType="VARCHAR"/>
+        <result property="tml" column="team_member" javaType="String" jdbcType="VARCHAR"/>
+        <result property="ti" column="tend" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getTeamById" parameterType="String" resultMap="TeamResultMapper" resultType="com.sdu.graduateback.dto.Team">
+        select * from team where team_id = #{id}
+    </select>
+    <update id="updateTeam" parameterType="com.sdu.graduateback.dto.Team">
+        update team set name = #{tn},team_member = #{tml},tend = #{ti} where teacher_id = #{id}
+    </update>
+
+</mapper>

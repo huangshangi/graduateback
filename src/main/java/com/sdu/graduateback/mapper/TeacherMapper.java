@@ -14,5 +14,5 @@ public interface TeacherMapper {
 
     Teacher getTeacherById(String id);
 
-    int updateTeacher(Teacher teacher,String id);
+    int updateTeacher(Teacher teacher);
 }

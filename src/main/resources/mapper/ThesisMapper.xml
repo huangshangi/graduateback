@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间.与StudentMapper绑定-->
+<mapper namespace="com.sdu.graduateback.mapper.ThesisMapper">
+    <resultMap id="ThesisResultMapper" type="com.sdu.graduateback.dto.Thesis" >
+        <result property="i" column="student_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="t" column="date" javaType="String" jdbcType="VARCHAR"/>
+        <result property="pt" column="title" javaType="String" jdbcType="VARCHAR"/>
+        <result property="pc" column="data" javaType="String" jdbcType="VARCHAR"/>
+        <result property="a" column="id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="type" column="type" javaType="String" jdbcType="VARCHAR"/>
+        <result property="status" column="state" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getThesisById" parameterType="String" resultMap="ThesisResultMapper" resultType="com.sdu.graduateback.dto.Thesis">
+        select * from plan where student_id = #{i}
+    </select>
+</mapper>

@@ -1,7 +1,6 @@
 package com.sdu.graduateback.mapper;
 
-import com.sdu.graduateback.dto.Teacher;
-import com.sdu.graduateback.dto.User;
+import com.sdu.graduateback.dto.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class test {
     @Autowired
     //private UserMapper userMapper;
-    private TeacherMapper teacherMapper;
+    //private TeacherMapper teacherMapper;
+    //private TeamMapper teamMapper;
+    //private TranPlanMapper tranPlanMapper;
+    //private ThesisMapper thesisMapper;
+    //private GoAbroadMapper goAbroadMapper;
+    private AwardMapper awardMapper;
 //    @Test
 //    public void addUser() {
 //        User user = new User();
@@ -64,12 +68,21 @@ public class test {
 //        user.setUser_type("teacher");
 //        userMapper.updateUser(user);
 //    }
+//    @Test
+//    public void idte(){
+//        Teacher teacher = teacherMapper.getTeacherById("2");
+//        System.out.println(teacher.getName());
+//        teacher.setAge("ddddsb");
+//        teacherMapper.updateTeacher(teacher);
+//    }
     @Test
-    public void idte(){
-        Teacher teacher = teacherMapper.getTeacherById("2");
-        System.out.println(teacher.getName());
-        teacher.setAge("ddddsb");
-        teacherMapper.updateTeacher(teacher);
+    public void t(){
+        awardMapper.getAwards("1");
+        Award award = awardMapper.getAwardById("1");
+        System.out.println(award.getN());
+        award.setN("666");
+
+        awardMapper.updateAward(award);
     }
 
 }

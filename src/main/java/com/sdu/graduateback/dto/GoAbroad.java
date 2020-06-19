@@ -12,7 +12,8 @@ public class GoAbroad {
 
     String id;
 
-
+    String title;
+    String reson;
     String time;
 
     //以下字段不应再数据库中储存

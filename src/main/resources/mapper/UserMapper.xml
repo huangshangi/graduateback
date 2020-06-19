@@ -38,7 +38,7 @@
         update user set openid = #{openId} where token = #{token}
     </update>
     <update id="updateUser" parameterType="com.sdu.graduateback.dto.User">
-        update user set user_name = #{u}, user_type = #{user_type}, password = #{p}, wei_chat = #{wei_chat}, openid = #{openid}, token = #{token}, code = #{code} where id = #{user_id}
+        update user set user_name = #{u}, user_type = #{user_type}, password = #{p}, wei_chat = #{wei_chat}, openid = #{openid}, token = #{token}, code = #{code} where id = #{id}
     </update>
 
 

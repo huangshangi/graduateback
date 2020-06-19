@@ -14,7 +14,7 @@ public class TranPlan {
     String i;//学生学号
 
     String name;//姓名 无意义字符
-
+    String plan;
     String status;//审核状态
 
 
