@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间.与StudentMapper绑定-->
+<mapper namespace="com.sdu.graduateback.mapper.RecuritQualificationMapper">
+    <resultMap id="RecuritQualificationResultMapper" type="com.sdu.graduateback.dto.RecuritQualification" >
+        <result property="id" column="teacher_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="pc" column="pc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="bc" column="bc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="ac" column="ac" javaType="String" jdbcType="VARCHAR"/>
+        <result property="ic" column="ic" javaType="String" jdbcType="VARCHAR"/>
+        <result property="tc" column="tc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="dc" column="dc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="nc" column="nc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="npc" column="npc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="ppc" column="ppc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="nppc" column="nppc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="cpc" column="cpc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="dsc" column="dsc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="msc" column="msc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="hgdsc" column="hgdsc" javaType="String" jdbcType="VARCHAR"/>
+        <result property="loma" column="loma" javaType="String" jdbcType="VARCHAR"/>
+        <result property="nloma" column="nloma" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getById" parameterType="String" resultMap="RecuritQualificationResultMapper" resultType="com.sdu.graduateback.dto.RecuritQualification">
+        select * from search_students where teacher_id = #{id}
+    </select>
+    <update id="updateRecuritQualification" parameterType="com.sdu.graduateback.dto.RecuritQualification">
+        update search_students set pc = #{pc}, bc = #{bc}, ac = #{ac}, ic = #{ic}, tc = #{tc}, dc = #{dc}, nc = #{nc}, npc = #{npc}, ppc = #{ppc}, nppc = #{nppc}, cpc = #{cpc}, dsc = #{dsc}, msc = #{msc}, hgdsc = #{hgdsc}, loma = #{loma}, nloma = #{nloma} where teacher_id = #{id}
+    </update>
+    <delete id="deleApply">
+        delete from search_students where teacher_id = #{tid}
+    </delete>
+    <insert id="addApply">
+        insert into search_students(teacher_id) values (#{tid})
+    </insert>
+
+</mapper>

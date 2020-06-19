@@ -16,4 +16,14 @@ public interface GraduateMapper {
 
     int updateGraduateById(Graduate graduate);
 
+    int addGraduate(Graduate graduate);
+
+    int deleteGraduate(Graduate graduate);
+
+    int updateGraduateByGType(String id,String type,String value);
+
+    int updateGraduateByAType(String id,String type,String value);
+
+    int updateGraduateByTType(String id,String value);
+
 }

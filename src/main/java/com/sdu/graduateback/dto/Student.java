@@ -13,7 +13,7 @@ public class Student {
     String i;//学生学号
 
     String n;//学生姓名
-
+    String gender;//学生性别
     String a;//学生所在学院
 
     String l;//学生年龄

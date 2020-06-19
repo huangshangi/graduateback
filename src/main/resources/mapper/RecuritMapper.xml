@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间.与StudentMapper绑定-->
+<mapper namespace="com.sdu.graduateback.mapper.RecuritMapper">
+    <resultMap id="RecuritResultMapper" type="com.sdu.graduateback.dto.Recurit" >
+        <result property="id" column="id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="code" column="code" javaType="String" jdbcType="VARCHAR"/>
+        <result property="name" column="name" javaType="String" jdbcType="VARCHAR"/>
+        <result property="type" column="type" javaType="String" jdbcType="VARCHAR"/>
+        <result property="academy" column="academy" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getRecuritById" parameterType="String" resultMap="RecuritResultMapper" resultType="com.sdu.graduateback.dto.Recurit">
+        select * from student_offer where id = #{id}
+    </select>
+
+</mapper>

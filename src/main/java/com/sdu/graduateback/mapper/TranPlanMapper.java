@@ -13,4 +13,8 @@ import com.sdu.graduateback.dto.TranPlan;
 public interface TranPlanMapper {
 
     TranPlan getTranPlanById(String id);
+    int addTranPlan(TranPlan tranPlan);
+
+    int deleteTranPaln(TranPlan tranPlan);
+    int updateTrainPlan(TranPlan tranPlan);
 }

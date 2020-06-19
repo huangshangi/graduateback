@@ -14,6 +14,15 @@
         <result property="status" column="state" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getThesisById" parameterType="String" resultMap="ThesisResultMapper" resultType="com.sdu.graduateback.dto.Thesis">
-        select * from plan where student_id = #{i}
+        select * from graduation where student_id = #{id}
     </select>
+    <insert id="addThesis" parameterType="com.sdu.graduateback.dto.Thesis">
+        insert into graduation(student_id,date,title,data,id,type,state) values (#{i},#{t},#{pt},#{pc},#{a},#{type},#{status})
+    </insert>
+    <update id="updateThesis" parameterType="com.sdu.graduateback.dto.Thesis">
+        update graduation set date = #{t}, title = #{pt}, data = #{pc}, id = #{a},type = #{type},state = #{status} where student_id = #{i}
+    </update>
+    <delete id="deleteThesis" parameterType="com.sdu.graduateback.dto.Thesis">
+        delete from graduation where student_id = #{i}
+    </delete>
 </mapper>

@@ -15,4 +15,10 @@ public interface TeamMapper {
     Team getTeamById(String id);
 
     int updateTeam(Team team);
+    int updateMember(String tid,String id);
+
+    int addTeam(Team team);
+
+    int deleteTeam(Team team);
+
 }

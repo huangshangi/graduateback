@@ -13,6 +13,11 @@ import com.sdu.graduateback.dto.Thesis;
 import java.util.List;
 
 public interface ThesisMapper {
+    int addThesis(Thesis thesis);
+
+    int deleteThesis(Thesis thesis);
+
+    int updateThesis(Thesis thesis);
 
     Thesis getThesisById(String id);
 }

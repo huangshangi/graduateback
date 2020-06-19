@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间.与StudentMapper绑定-->
+<mapper namespace="com.sdu.graduateback.mapper.StudentMapper">
+    <resultMap id="StudentResultMapper" type="com.sdu.graduateback.dto.Student" >
+        <result property="i" column="user_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="n" column="name" javaType="String" jdbcType="VARCHAR"/>
+        <result property="gender" column="sex" javaType="String" jdbcType="VARCHAR"/>
+        <result property="a" column="class" javaType="String" jdbcType="VARCHAR"/>
+        <result property="l" column="age" javaType="String" jdbcType="VARCHAR"/>
+        <result property="t" column="teacher_id" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getStudentsByTeacherId" parameterType="String" resultMap="StudentResultMapper" resultType="com.sdu.graduateback.dto.Student">
+        select * from student where teacher_id = #{teacherId}
+    </select>
+    <select id="getStudentById" parameterType="String" resultMap="StudentResultMapper" resultType="com.sdu.graduateback.dto.Student">
+        select * from student where user_id = #{id}
+    </select>
+    <insert id="addStudent" parameterType="com.sdu.graduateback.dto.Student">
+        insert into student(user_id,name,sex,class,age,teacher_id) values (#{i},#{n},#{gender},#{a},#{l},#{t})
+    </insert>
+    <delete id="deleteStudent" parameterType="com.sdu.graduateback.dto.Student">
+        delete from student where user_id = #{i}
+    </delete>
+    <update id="updateStudent" parameterType="com.sdu.graduateback.dto.Student">
+        update student set name = #{n}, sex = #{gender}, class = #{a}, age = #{l}, teacher_id = #{t} where user_id = #{i}
+    </update>
+
+</mapper>

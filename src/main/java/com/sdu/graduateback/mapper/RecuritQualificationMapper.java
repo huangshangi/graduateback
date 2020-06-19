@@ -16,6 +16,8 @@ public interface RecuritQualificationMapper {
 
     int updateRecuritQualification(RecuritQualification recuritQualification);
 
+    int deleApply(String tid);
 
+    int addApply(String tid);
 
 }

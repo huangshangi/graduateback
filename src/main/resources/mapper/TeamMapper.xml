@@ -11,10 +11,19 @@
         <result property="ti" column="tend" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getTeamById" parameterType="String" resultMap="TeamResultMapper" resultType="com.sdu.graduateback.dto.Team">
-        select * from team where team_id = #{id}
+        select * from team where teacher_id = #{id}
     </select>
     <update id="updateTeam" parameterType="com.sdu.graduateback.dto.Team">
         update team set name = #{tn},team_member = #{tml},tend = #{ti} where teacher_id = #{id}
     </update>
+    <update id="updateMember" parameterType="String">
+        update team set team_member = #{id} where teacher_id = #{tid}
+    </update>
+    <insert id="addTeam" parameterType="com.sdu.graduateback.dto.Team">
+        insert into team(teacher_id,name,team_member,tend) values (#{id},#{tn},#{tml},#{ti})
+    </insert>
+    <delete id="deleteTeam" parameterType="com.sdu.graduateback.dto.Team">
+        delete from team where teacher_id = #{id}
+    </delete>
 
 </mapper>

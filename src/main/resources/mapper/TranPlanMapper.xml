@@ -12,4 +12,13 @@
     <select id="getTranPlanById" parameterType="String" resultMap="TranPlanResultMapper" resultType="com.sdu.graduateback.dto.TranPlan">
         select * from plan where student_id = #{i}
     </select>
+    <insert id="addTranPlan" parameterType="com.sdu.graduateback.dto.TranPlan">
+        insert into plan(student_id,plan_id,state) values (#{i},#{name},#{status})
+    </insert>
+    <delete id="deleteTranPaln" parameterType="com.sdu.graduateback.dto.TranPlan">
+        delete from plan where student_id = #{i}
+    </delete>
+    <update id="updateTrainPlan" parameterType="com.sdu.graduateback.dto.TranPlan">
+        update plan set state = #{status} where student_id = #{i}
+    </update>
 </mapper>

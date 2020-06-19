@@ -18,7 +18,7 @@ public interface TeamService {
 
     int updateTeam(Team team);
 
-    int addMember(String tid,String id);
+    int addMember(String tid,String id);//tid为唯一标识，id为原来的member+","+新的成员的id，我直接换成了updateMember方法，你把处理后的member传过去就可以了
 
     int deleMember(String tid,String id);
 
