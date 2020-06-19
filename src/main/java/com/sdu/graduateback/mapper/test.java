@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class test {
@@ -18,6 +20,7 @@ public class test {
     //private ThesisMapper thesisMapper;
     //private GoAbroadMapper goAbroadMapper;
     private AwardMapper awardMapper;
+    //private GraduateMapper graduateMapper;
 //    @Test
 //    public void addUser() {
 //        User user = new User();
@@ -76,13 +79,8 @@ public class test {
 //        teacherMapper.updateTeacher(teacher);
 //    }
     @Test
-    public void t(){
-        awardMapper.getAwards("1");
-        Award award = awardMapper.getAwardById("1");
-        System.out.println(award.getN());
-        award.setN("666");
-
-        awardMapper.updateAward(award);
+    public void test(){
+        List<Award> award = awardMapper.getAwards("1");
     }
 
 }

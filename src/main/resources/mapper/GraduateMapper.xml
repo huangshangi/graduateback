@@ -5,13 +5,19 @@
 <!--命名空间.与StudentMapper绑定-->
 <mapper namespace="com.sdu.graduateback.mapper.GraduateMapper">
     <resultMap id="GraduateResultMapper" type="com.sdu.graduateback.dto.Graduate" >
-        <result property="id" column="student_id" javaType="String" jdbcType="VARCHAR"/>
-        <result property="title" column="title" javaType="String" jdbcType="VARCHAR"/>
-        <result property="reson" column="reson" javaType="String" jdbcType="VARCHAR"/>
-        <result property="type" column="type" javaType="String" jdbcType="VARCHAR"/>
-        <result property="status" column="state" javaType="String" jdbcType="VARCHAR"/>
+        <result property="i" column="id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="ga" column="ga" javaType="String" jdbcType="VARCHAR"/>
+        <result property="gba" column="tpa" javaType="String" jdbcType="VARCHAR"/>
+        <result property="e" column="e" javaType="String" jdbcType="VARCHAR"/>
+        <result property="gp" column="gp" javaType="String" jdbcType="VARCHAR"/>
+        <result property="ta" column="ta" javaType="String" jdbcType="VARCHAR"/>
+        <result property="na" column="na" javaType="String" jdbcType="VARCHAR"/>
+        <result property="ba" column="ba" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
-    <select id="getGoAbroadById" parameterType="String" resultMap="GoAbroadResultMapper" resultType="com.sdu.graduateback.dto.GoAbroad">
-        select * from plan where student_id = #{id}
+    <select id="getGraduateById" parameterType="String" resultMap="GraduateResultMapper" resultType="com.sdu.graduateback.dto.Graduate">
+        select * from gg where id = #{id}
     </select>
+    <update id="updateGraduateById" parameterType="com.sdu.graduateback.dto.Graduate">
+        update gg set ga = #{ga},gba = #{gba}, tpa = #{tpa}, e = #{e}, gp = #{gp}, ta = #{ta}, na = #{na}, ba = #{ba} where id = #{i}
+    </update>
 </mapper>
