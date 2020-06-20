@@ -14,6 +14,7 @@ import com.sdu.graduateback.service.TeamService;
 import com.sdu.graduateback.service.UserService;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,9 +26,9 @@ import java.util.HashMap;
 
 @Controller
 public class TeamController {
-
+    @Autowired
     UserService userService;
-
+    @Autowired
     TeamService teamService;
 
     @RequestMapping(value = "/recuritteam",method = RequestMethod.POST)
@@ -47,7 +48,7 @@ public class TeamController {
 
         if(StringUtil.teamSelect(team)){
             //查询操作
-            Object obj=teamService.convertToTeam(team);
+            Object obj=teamService.convertToTeam(t);
             map.put("result",obj);
             //待实现
             return new Result("success",null,map);

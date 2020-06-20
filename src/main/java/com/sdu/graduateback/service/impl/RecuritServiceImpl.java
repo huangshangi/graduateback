@@ -10,7 +10,9 @@ package com.sdu.graduateback.service.impl;
 
 import com.sdu.graduateback.dto.Recurit;
 import com.sdu.graduateback.service.RecuritService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RecuritServiceImpl implements RecuritService {
 
     @Override

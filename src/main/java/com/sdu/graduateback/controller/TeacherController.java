@@ -15,6 +15,8 @@ import com.sdu.graduateback.service.TeacherService;
 import com.sdu.graduateback.service.UserService;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,11 +24,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@Controller
 public class TeacherController {
 
+    @Autowired
     UserService userService;
-
+    @Autowired
     TeacherService teacherService;
 
     @RequestMapping(value = "/tinfo",method = RequestMethod.POST)
@@ -39,7 +42,9 @@ public class TeacherController {
 
         Map<String,Object> map=new HashMap<>();
         teacher.setId(userService.getIdByToken(token));
+        System.out.println(teacher.getId());
         Teacher obj=teacherService.getTeacherById(teacher.getId());
+
         if(StringUtil.teacherSelect(teacher)){
 
             //查询教师信息

@@ -12,9 +12,10 @@ import com.sdu.graduateback.dto.Award;
 import com.sdu.graduateback.mapper.AwardMapper;
 import com.sdu.graduateback.service.AwardService;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class AwardServiceImpl implements AwardService {
 
     AwardMapper awardMapper;

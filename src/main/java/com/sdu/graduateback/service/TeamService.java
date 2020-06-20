@@ -9,7 +9,9 @@
 package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.Team;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface TeamService {
 
     int addTeam(Team team);

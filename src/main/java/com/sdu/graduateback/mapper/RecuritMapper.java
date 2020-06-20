@@ -9,7 +9,9 @@
 package com.sdu.graduateback.mapper;
 
 import com.sdu.graduateback.dto.Recurit;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface RecuritMapper {
 
     Recurit getRecuritById(String id);

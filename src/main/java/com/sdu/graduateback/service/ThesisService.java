@@ -9,9 +9,10 @@
 package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.Thesis;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface ThesisService {
 
     int addThesis(Thesis thesis);

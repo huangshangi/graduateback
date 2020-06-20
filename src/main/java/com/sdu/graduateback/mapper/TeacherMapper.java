@@ -9,7 +9,9 @@
 package com.sdu.graduateback.mapper;
 
 import com.sdu.graduateback.dto.Teacher;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface TeacherMapper {
 
     Teacher getTeacherById(String id);

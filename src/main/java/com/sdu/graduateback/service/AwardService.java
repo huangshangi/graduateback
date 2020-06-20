@@ -9,9 +9,10 @@
 package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.Award;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface AwardService {
 
     List<Award>getAwards(String personId);

@@ -9,7 +9,9 @@
 package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.Recurit;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface RecuritService {
 
     Recurit getRecuritById(String id);

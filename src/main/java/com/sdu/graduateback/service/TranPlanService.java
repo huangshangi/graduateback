@@ -9,9 +9,11 @@
 package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.TranPlan;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface TranPlanService {
 
     int addTranPlan(TranPlan tranPlan);
