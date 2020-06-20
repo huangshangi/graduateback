@@ -12,12 +12,14 @@ import com.sdu.graduateback.dto.Award;
 import com.sdu.graduateback.mapper.AwardMapper;
 import com.sdu.graduateback.service.AwardService;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class AwardServiceImpl implements AwardService {
 
+    @Autowired
     AwardMapper awardMapper;
 
     @Override
@@ -48,5 +50,11 @@ public class AwardServiceImpl implements AwardService {
     @Override
     public int updateAward(Award award) {
         return awardMapper.updateAward(award);
+    }
+
+
+    @Override
+    public List<Award> getAwardsbyType(String personId, String type) {
+        return awardMapper.getAwardsByType(personId,type);
     }
 }

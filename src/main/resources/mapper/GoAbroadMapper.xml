@@ -12,6 +12,6 @@
         <result property="status" column="state" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getGoAbroadById" parameterType="String" resultMap="GoAbroadResultMapper" resultType="com.sdu.graduateback.dto.GoAbroad">
-        select * from plan where student_id = #{id}
+        select * from goout where student_id = #{id}
     </select>
 </mapper>

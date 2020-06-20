@@ -139,4 +139,23 @@ public class Graduate {
     public void setTpa(String tpa) {
         this.tpa = tpa;
     }
+
+
+    @Override
+    public String toString() {
+        return "Graduate{" +
+                "i='" + i + '\'' +
+                ", ga='" + ga + '\'' +
+                ", e='" + e + '\'' +
+                ", gp='" + gp + '\'' +
+                ", ta='" + ta + '\'' +
+                ", na='" + na + '\'' +
+                ", gba='" + gba + '\'' +
+                ", ba='" + ba + '\'' +
+                ", tpa='" + tpa + '\'' +
+                ", token='" + token + '\'' +
+                ", t='" + t + '\'' +
+                ", o='" + o + '\'' +
+                '}';
+    }
 }

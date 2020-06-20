@@ -63,13 +63,13 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public Team teamPack(Team oldT, Team newT) {
-        if(StringUtils.isEmpty(oldT.getTn()))
+        if(!StringUtils.isEmpty(oldT.getTn()))
             newT.setTn(oldT.getTn());
 
-        if(StringUtils.isEmpty(oldT.getTi()))
+        if(!StringUtils.isEmpty(oldT.getTi()))
             newT.setTi(oldT.getTi());
 
-        if(StringUtils.isEmpty(oldT.getTml()))
+        if(!StringUtils.isEmpty(oldT.getTml()))
             newT.setTml(oldT.getTml());
 
         return newT;

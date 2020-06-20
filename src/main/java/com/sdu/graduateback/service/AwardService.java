@@ -17,6 +17,7 @@ public interface AwardService {
 
     List<Award>getAwards(String personId);
 
+    List<Award>getAwardsbyType(String personId,String type);
 
     Award getAwardById(String id);
 

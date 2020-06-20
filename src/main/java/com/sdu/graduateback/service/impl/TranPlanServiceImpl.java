@@ -61,10 +61,13 @@ public class TranPlanServiceImpl implements TranPlanService {
             Graduate graduate=graduateMapper.getGraduateById(student.getI());
             TranPlan tranPlan=tranPlanMapper.getTranPlanById(student.getI());
 
-            if(!graduate.getTpa().equals("0"))
+            if(!graduate.getTpa().equals("0")){
                 tranPlan.setStatus(graduate.getTpa());
+                res.add(tranPlan);
+            }
 
-            res.add(tranPlan);
+
+
 
         }
 

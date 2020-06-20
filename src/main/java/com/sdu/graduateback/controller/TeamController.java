@@ -51,11 +51,11 @@ public class TeamController {
             Object obj=teamService.convertToTeam(t);
             map.put("result",obj);
             //待实现
-            return new Result("success",null,map);
+            return new Result("success",null,obj);
         }else{
 
             //更新操作
-            if(StringUtils.isEmpty(team.getType())&&StringUtils.isEmpty(team.getPersonId()))
+            if(!StringUtils.isEmpty(team.getType())&&!StringUtils.isEmpty(team.getPersonId()))
                 team=teamService.executeApply(team,team.getType(),team.getPersonId());
 
 

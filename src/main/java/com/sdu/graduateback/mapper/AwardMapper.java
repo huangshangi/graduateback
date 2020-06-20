@@ -18,6 +18,7 @@ public interface AwardMapper {
 
     List<Award> getAwards(String personId);
 
+    List<Award> getAwardsByType(String personId,String type);
 
     Award getAwardById(String id);
 

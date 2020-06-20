@@ -60,7 +60,7 @@ public class ThesisServiceImpl implements ThesisService {
         List<Thesis>res=new ArrayList<>();
 
         for(Student student:students){
-            Thesis thesis=thesisMapper.getThesisById(id);
+            Thesis thesis=thesisMapper.getThesisById(student.getI());
             Graduate graduate=graduateMapper.getGraduateById(thesis.getI());
 
             if(type.equals("1")&&!graduate.getE().equals("0")){

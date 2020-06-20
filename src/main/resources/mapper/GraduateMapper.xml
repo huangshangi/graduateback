@@ -12,7 +12,8 @@
         <result property="status" column="state" javaType="String" jdbcType="VARCHAR"/>
         <result property="i" column="id" javaType="String" jdbcType="VARCHAR"/>
         <result property="ga" column="ga" javaType="String" jdbcType="VARCHAR"/>
-        <result property="gba" column="tpa" javaType="String" jdbcType="VARCHAR"/>
+        <result property="gba" column="gba" javaType="String" jdbcType="VARCHAR"/>
+        <result property="tpa" column="tpa" javaType="String" jdbcType="VARCHAR"/>
         <result property="e" column="e" javaType="String" jdbcType="VARCHAR"/>
         <result property="gp" column="gp" javaType="String" jdbcType="VARCHAR"/>
         <result property="ta" column="ta" javaType="String" jdbcType="VARCHAR"/>

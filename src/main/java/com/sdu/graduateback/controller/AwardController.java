@@ -14,6 +14,8 @@ import com.sdu.graduateback.service.AwardService;
 import com.sdu.graduateback.service.UserService;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,10 +24,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashMap;
 import java.util.List;
 
+@Controller
 public class AwardController {
-
+    @Autowired
     AwardService awardService;
-
+    @Autowired
     UserService userService;
 
     @RequestMapping(value = "/achi",method = RequestMethod.POST)
@@ -42,12 +45,15 @@ public class AwardController {
 
         if(StringUtil.awardSele(award)){
             //查询
-            if(StringUtil.isEmpty(award.getI())){
+            if(!StringUtil.isEmpty(award.getI())){
                 Award obj=awardService.getAwardById(award.getI());
-                hashMap.put("result",obj);
-            }else{
+                hashMap.put("list",obj);
+            }else if(StringUtil.isEmpty(award.getT())){
                 List<Award>list=awardService.getAwards(personId);
-                hashMap.put("result",list);
+                hashMap.put("list",list);
+            }else{
+                List<Award>list=awardService.getAwardsbyType(personId,award.getT());
+                hashMap.put("list",list);
             }
 
             return new Result("success",null,hashMap);

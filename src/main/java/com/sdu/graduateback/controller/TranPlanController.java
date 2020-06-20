@@ -57,12 +57,12 @@ public class TranPlanController {
             Object obj=tranPlanService.convertTranPlanToJson(list);
             map.put("result",obj);
 
-            return new Result("success",null,map);
+            return new Result("success",null,obj);
 
         }else{
             if(StringUtil.isEmpty(graduate.getO())){
                 map.put("result",tranPlanService.getTranPlanById(graduate.getI()));
-                return new Result("success",null,map);
+                return new Result("success",null,tranPlanService.getTranPlanById(graduate.getI()));
             }
 
 

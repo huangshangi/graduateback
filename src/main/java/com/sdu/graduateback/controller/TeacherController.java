@@ -42,7 +42,7 @@ public class TeacherController {
 
         Map<String,Object> map=new HashMap<>();
         teacher.setId(userService.getIdByToken(token));
-        System.out.println(teacher.getId());
+
         Teacher obj=teacherService.getTeacherById(teacher.getId());
 
         if(StringUtil.teacherSelect(teacher)){
@@ -54,7 +54,7 @@ public class TeacherController {
 
             //组装
             map.put("result",obj);
-            return new Result("success",null,map);
+            return new Result("success",null,obj);
 
         }else{
 

@@ -139,11 +139,13 @@ public class RecuritQualificationServiceImpl implements RecuritQualificationServ
         if(type.equals("1")){
             //删除申请招生信息
             recuritQualification.setLoma(deleteString(loma,tid));
-            recuritQualification.setNloma(","+nloma);
+            recuritQualification.setNloma(nloma+","+tid);
         }else{
             //申请招生信息
-            recuritQualification.setLoma(","+loma);
+            recuritQualification.setLoma(loma+","+tid);
+
             recuritQualification.setNloma(deleteString(nloma,tid));
+
         }
 
         return recuritQualification;

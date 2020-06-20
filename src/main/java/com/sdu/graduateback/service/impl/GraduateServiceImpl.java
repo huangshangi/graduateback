@@ -75,6 +75,7 @@ public class GraduateServiceImpl implements GraduateService {
     @Override
     public int updateGraduateByGType(String id, String type, String value) {
         Graduate graduate=graduateMapper.getGraduateById(id);
+        System.out.println(graduate.getTpa());
         if(value.equals("0"))
             value="3";
         else if(value.equals("1"))

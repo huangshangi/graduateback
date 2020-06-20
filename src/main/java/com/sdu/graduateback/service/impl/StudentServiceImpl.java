@@ -33,7 +33,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudentById(String id) {
-        return null;
+        return studentMapper.getStudentById(id);
     }
 
     @Override
@@ -43,6 +43,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public int updateStudent(Student student) {
-        return 0;
+        return studentMapper.updateStudent(student);
     }
 }

@@ -8,9 +8,6 @@
 
 package com.sdu.graduateback.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class GoAbroad {
 
     String id;
@@ -54,5 +51,17 @@ public class GoAbroad {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "GoAbroad{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", reson='" + reson + '\'' +
+                ", time='" + time + '\'' +
+                ", type='" + type + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

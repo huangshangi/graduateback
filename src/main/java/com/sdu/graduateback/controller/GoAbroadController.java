@@ -19,6 +19,7 @@ import com.sdu.graduateback.service.StudentService;
 import com.sdu.graduateback.service.UserService;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,12 +32,13 @@ import java.util.List;
 @Controller
 public class GoAbroadController {
 
+    @Autowired
     UserService userService;
-
+    @Autowired
     StudentService studentService;
-
+    @Autowired
     GoAbroadService goAbroadService;
-
+    @Autowired
     GraduateService graduateService;
 
     @RequestMapping(value = "/abroeval",method = RequestMethod.POST)
@@ -59,7 +61,7 @@ public class GoAbroadController {
 
             map.put("result",obj);
 
-            return new Result("success",null,map);
+            return new Result("success",null,obj);
 
         }else{
 

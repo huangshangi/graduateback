@@ -14,6 +14,7 @@ import com.sdu.graduateback.service.RecuritQualificationService;
 import com.sdu.graduateback.service.UserService;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,9 +26,9 @@ import java.util.Map;
 
 @Controller
 public class RecuritController {
-
+    @Autowired
     RecuritQualificationService recuritQualificationService;
-
+    @Autowired
     UserService userService;
 
     @RequestMapping(value = "/recurit",method = RequestMethod.POST)
@@ -50,14 +51,14 @@ public class RecuritController {
             //查询操作
             Object object=recuritQualificationService.convertJson(newObj);
             map.put("result",object);
-            return new Result("success",null,map);
+            return new Result("success",null,object);
         }else{
             //更新操作
             RecuritQualification newR=recuritQualificationService.recuritQualificationPack(obj,newObj);
 
-            if(!StringUtil.isEmpty(newR.getT())){
-                String type=newR.getT();
-                String tId=newR.gettId();
+            if(!StringUtil.isEmpty(obj.getT())){
+                String type=obj.getT();
+                String tId=obj.gettId();
                 newR=recuritQualificationService.executeApply(newR,type,tId);
 
             }
@@ -67,7 +68,7 @@ public class RecuritController {
                 return ErrorUtil.getErrorReport("更新数据时发生错误");
             else{
                 map.put("result","更新数据成功");
-                return new Result("success",null,map);
+                return new Result("success",null,null);
             }
         }
 
