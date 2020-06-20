@@ -7,8 +7,11 @@
  */
 
 package com.sdu.graduateback.dto;
-//成果表
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+//成果表
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Award {
 
 

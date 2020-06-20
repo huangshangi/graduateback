@@ -8,6 +8,9 @@
 
 package com.sdu.graduateback.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Student {
 
     String i;//学生学号
