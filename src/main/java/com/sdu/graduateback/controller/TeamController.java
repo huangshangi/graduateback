@@ -56,7 +56,7 @@ public class TeamController {
 
             //更新操作
             if(!StringUtils.isEmpty(team.getType())&&!StringUtils.isEmpty(team.getPersonId()))
-                team=teamService.executeApply(team,team.getType(),team.getPersonId());
+                team=teamService.executeApply(t,team.getType(),team.getPersonId());
 
 
             Team obj=teamService.teamPack(team,t);
