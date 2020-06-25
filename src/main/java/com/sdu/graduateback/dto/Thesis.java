@@ -17,6 +17,9 @@ public class Thesis {
 
     String i;//论文所有者id
 
+    String articleId;//论文id
+
+
     String t;//论文申请时间
 
     String pt;//论文题目
@@ -84,5 +87,14 @@ public class Thesis {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+
+    public String getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(String articleId) {
+        this.articleId = articleId;
     }
 }

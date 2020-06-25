@@ -50,8 +50,7 @@ public class StringUtil {
 
     public static boolean awardSele(Award award){
 
-        return isEmpty(award.getD())&&isEmpty(award.getN())
-                ;
+        return isEmpty(award.getD())&&isEmpty(award.getN());
     }
 
 

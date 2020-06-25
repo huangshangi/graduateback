@@ -6,6 +6,7 @@
 <mapper namespace="com.sdu.graduateback.mapper.ThesisMapper">
     <resultMap id="ThesisResultMapper" type="com.sdu.graduateback.dto.Thesis" >
         <result property="i" column="student_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="articleId" column="article_id" javaType="String" jdbcType="VARCHAR"/>
         <result property="t" column="date" javaType="String" jdbcType="VARCHAR"/>
         <result property="pt" column="title" javaType="String" jdbcType="VARCHAR"/>
         <result property="pc" column="data" javaType="String" jdbcType="VARCHAR"/>
@@ -14,7 +15,7 @@
         <result property="status" column="state" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getThesisById" parameterType="String" resultMap="ThesisResultMapper" resultType="com.sdu.graduateback.dto.Thesis">
-        select * from graduation where student_id = #{id}
+        select * from graduation where article_id = #{id}
     </select>
     <insert id="addThesis" parameterType="com.sdu.graduateback.dto.Thesis">
         insert into graduation(student_id,date,title,data,id,type,state) values (#{i},#{t},#{pt},#{pc},#{a},#{type},#{status})
