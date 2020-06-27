@@ -5,13 +5,18 @@
 <!--命名空间.与StudentMapper绑定-->
 <mapper namespace="com.sdu.graduateback.mapper.GoAbroadMapper">
     <resultMap id="GoAbroadResultMapper" type="com.sdu.graduateback.dto.GoAbroad" >
+        <result property="g_id" column="id" javaType="Int" jdbcType="INTEGER"/>
         <result property="id" column="student_id" javaType="String" jdbcType="VARCHAR"/>
         <result property="title" column="title" javaType="String" jdbcType="VARCHAR"/>
         <result property="reson" column="reson" javaType="String" jdbcType="VARCHAR"/>
         <result property="type" column="type" javaType="String" jdbcType="VARCHAR"/>
         <result property="status" column="state" javaType="String" jdbcType="VARCHAR"/>
+        <result property="time" column="time" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getGoAbroadById" parameterType="String" resultMap="GoAbroadResultMapper" resultType="com.sdu.graduateback.dto.GoAbroad">
-        select * from plan where student_id = #{id}
+        select * from goout where student_id = #{id}
     </select>
+    <insert id="insertGoAbroad" parameterType="com.sdu.graduateback.dto.GoAbroad" useGeneratedKeys="true" keyProperty="g_id">
+        insert into goout(student_id,title,reson,type,state,time) values (#{id},#{title},#{reson},#{type},#{status},#{time})
+    </insert>
 </mapper>

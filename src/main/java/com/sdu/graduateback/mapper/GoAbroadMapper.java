@@ -13,4 +13,5 @@ import com.sdu.graduateback.dto.GoAbroad;
 public interface GoAbroadMapper {
 
     GoAbroad getGoAbroadById(String id);
+    int insertGoAbroad(GoAbroad goAbroad);
 }

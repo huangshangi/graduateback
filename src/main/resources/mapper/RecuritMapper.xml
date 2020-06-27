@@ -14,5 +14,11 @@
     <select id="getRecuritById" parameterType="String" resultMap="RecuritResultMapper" resultType="com.sdu.graduateback.dto.Recurit">
         select * from student_offer where id = #{id}
     </select>
+    <insert id="addRecurit" parameterType="com.sdu.graduateback.dto.Recurit">
+        insert into student_offer(id,code,name,type,academy) values (#{id},#{code},#{name},#{type},#{academy})
+    </insert>
+    <delete id="deleRecurit" parameterType="com.sdu.graduateback.dto.Recurit">
+        delete from student_offer where id = #{id}
+    </delete>
 
 </mapper>

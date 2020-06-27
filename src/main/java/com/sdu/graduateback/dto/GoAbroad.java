@@ -9,7 +9,7 @@
 package com.sdu.graduateback.dto;
 
 public class GoAbroad {
-
+    int g_id;
     String id;
 
     String title;
