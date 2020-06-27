@@ -59,6 +59,8 @@ public class GraduateServiceImpl implements GraduateService {
             value="2";
         else if(value.equals("2"))
             value="0";
+        else if(value.equals("3"))
+            value="1";
 
         if(type.equals("0"))
             graduate.setTa(value);
@@ -82,7 +84,8 @@ public class GraduateServiceImpl implements GraduateService {
             value="2";
         else if(value.equals("2"))
             value="0";
-
+        else if(value.equals("3"))
+            value="1";
 
         if(type.equals("0"))
             graduate.setGa(value);
@@ -103,6 +106,8 @@ public class GraduateServiceImpl implements GraduateService {
             value="2";
         else if(value.equals("2"))
             value="0";
+        else if(value.equals("3"))
+            value="1";
         graduate.setTpa(value);
 
         return updateGraduate(graduate);

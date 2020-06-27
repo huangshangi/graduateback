@@ -13,7 +13,7 @@
         select * from plan where student_id = #{i}
     </select>
     <insert id="addTranPlan" parameterType="com.sdu.graduateback.dto.TranPlan">
-        insert into plan(student_id,plan_id,state) values (#{i},#{name},#{status})
+        insert into plan(student_id,plan,state) values (#{i},#{name},'ok')
     </insert>
     <delete id="deleteTranPaln" parameterType="com.sdu.graduateback.dto.TranPlan">
         delete from plan where student_id = #{i}

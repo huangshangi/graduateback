@@ -54,4 +54,10 @@ public class StringUtil {
     }
 
 
+    public static boolean tranSele(TranPlan tranPlan){
+
+        return isEmpty(tranPlan.getPlan());
+    }
+
+
 }

@@ -31,6 +31,7 @@ public class Thesis {
     //以下字段不应再数据库中储存
     String type;//论文类型 外审论文 毕业论文
     String status;//论文审核状态
+    String token;
 
     public String getI() {
         return i;
@@ -96,5 +97,14 @@ public class Thesis {
 
     public void setArticleId(String articleId) {
         this.articleId = articleId;
+    }
+
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

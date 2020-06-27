@@ -21,6 +21,8 @@ public class TranPlan {
     String status;//审核状态
 
 
+    String token;
+
     public String getI() {
         return i;
     }
@@ -43,5 +45,33 @@ public class TranPlan {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+
+    public String getPlan() {
+        return plan;
+    }
+
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    @Override
+    public String toString() {
+        return "TranPlan{" +
+                "i='" + i + '\'' +
+                ", name='" + name + '\'' +
+                ", plan='" + plan + '\'' +
+                ", status='" + status + '\'' +
+                ", token='" + token + '\'' +
+                '}';
     }
 }

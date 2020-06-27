@@ -37,7 +37,7 @@ public class TranPlanServiceImpl implements TranPlanService {
 
     @Override
     public int addTranPlan(TranPlan tranPlan) {
-        return 0;
+        return tranPlanMapper.addTranPlan(tranPlan);
     }
 
     @Override
