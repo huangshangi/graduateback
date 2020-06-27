@@ -16,9 +16,9 @@ public class test {
     //private UserMapper userMapper;
     //private TeacherMapper teacherMapper;
     //private TeamMapper teamMapper;
-    private TranPlanMapper tranPlanMapper;
+    //private TranPlanMapper tranPlanMapper;
     //private ThesisMapper thesisMapper;
-    //private GoAbroadMapper goAbroadMapper;
+    private GoAbroadMapper goAbroadMapper;
     //private AwardMapper awardMapper;
     //private GraduateMapper graduateMapper;
     //private StudentMapper studentMapper;
@@ -85,13 +85,11 @@ public class test {
 //    }
     @Test
     public void test(){
-        TranPlan tranPlan = tranPlanMapper.getTranPlanById("1");
-        tranPlan.setStatus("ok");
-        tranPlanMapper.updateTrainPlan(tranPlan);
-        tranPlan.setI("5");
-        tranPlanMapper.addTranPlan(tranPlan);
-        tranPlanMapper.deleteTranPaln(tranPlan);
-
+        GoAbroad goAbroad = goAbroadMapper.getGoAbroadById("201701");
+        GoAbroad goAbroad1 = new GoAbroad();
+        goAbroad1.setTime("8888");
+        goAbroad1.setId("201708");
+        goAbroadMapper.insertGoAbroad(goAbroad1);
     }
 
 }

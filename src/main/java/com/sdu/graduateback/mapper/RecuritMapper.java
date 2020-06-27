@@ -17,4 +17,8 @@ public interface RecuritMapper {
     Recurit getRecuritById(String id);
 
     Recurit getRecuritByScAndSt(String sc,String st);
+
+    int deleRecurit(Recurit recurit);
+
+    int addRecurit(Recurit recurit);
 }

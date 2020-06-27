@@ -15,4 +15,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface GoAbroadMapper {
 
     GoAbroad getGoAbroadById(String id);
+    int insertGoAbroad(GoAbroad goAbroad);
 }

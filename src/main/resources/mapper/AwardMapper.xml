@@ -5,7 +5,7 @@
 <!--命名空间.与StudentMapper绑定-->
 <mapper namespace="com.sdu.graduateback.mapper.AwardMapper">
     <resultMap id="AwardResultMapper" type="com.sdu.graduateback.dto.Award" >
-        <result property="i" column="award_id" javaType="String" jdbcType="VARCHAR"/>
+        <result property="i" column="award_id" javaType="String" jdbcType="INTEGER"/>
         <result property="personId" column="user_id" javaType="String" jdbcType="VARCHAR"/>
         <result property="d" column="detail" javaType="String" jdbcType="VARCHAR"/>
         <result property="n" column="title" javaType="String" jdbcType="VARCHAR"/>
@@ -31,4 +31,7 @@
     <update id="updateAward" parameterType="com.sdu.graduateback.dto.Award">
         update award set title = #{n}, user_id = #{personId} ,detail = #{d}, title = #{n}, date = #{time}, type = #{t} where award_id = #{i}
     </update>
+    <insert id="addAward" parameterType="com.sdu.graduateback.dto.Award" useGeneratedKeys="true" keyProperty="i">
+        insert into award (user_id,detail,title,date,type) values (#{personId},#{d},#{n},#{time},#{t});
+    </insert>
 </mapper>
