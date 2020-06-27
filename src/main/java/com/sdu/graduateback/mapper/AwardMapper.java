@@ -9,14 +9,16 @@
 package com.sdu.graduateback.mapper;
 
 import com.sdu.graduateback.dto.Award;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
+@Mapper
 public interface AwardMapper {
 
 
     List<Award> getAwards(String personId);
-    int addAward(Award award);
+
+    List<Award> getAwardsByType(String personId,String type);
 
     Award getAwardById(String id);
 

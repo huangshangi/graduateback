@@ -18,6 +18,7 @@ import com.sdu.graduateback.service.TranPlanService;
 import com.sdu.graduateback.service.UserService;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,12 +31,13 @@ import java.util.List;
 @Controller
 public class TranPlanController {
 
+    @Autowired
     UserService userService;
-
+    @Autowired
     TranPlanService tranPlanService;
-
+    @Autowired
     StudentService studentService;
-
+    @Autowired
     GraduateService graduateService;
 
     @RequestMapping(value = "/tranplan",method = RequestMethod.POST)
@@ -55,12 +57,12 @@ public class TranPlanController {
             Object obj=tranPlanService.convertTranPlanToJson(list);
             map.put("result",obj);
 
-            return new Result("success",null,map);
+            return new Result("success",null,obj);
 
         }else{
             if(StringUtil.isEmpty(graduate.getO())){
                 map.put("result",tranPlanService.getTranPlanById(graduate.getI()));
-                return new Result("success",null,map);
+                return new Result("success",null,tranPlanService.getTranPlanById(graduate.getI()));
             }
 
 

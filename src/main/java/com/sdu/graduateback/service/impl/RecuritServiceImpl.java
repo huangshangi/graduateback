@@ -9,17 +9,23 @@
 package com.sdu.graduateback.service.impl;
 
 import com.sdu.graduateback.dto.Recurit;
+import com.sdu.graduateback.mapper.RecuritMapper;
 import com.sdu.graduateback.service.RecuritService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RecuritServiceImpl implements RecuritService {
 
+    @Autowired
+    RecuritMapper recuritMapper;
     @Override
     public Recurit getRecuritById(String id) {
-        return null;
+        return recuritMapper.getRecuritById(id);
     }
 
     @Override
     public Recurit getRecuritByScAndSt(String sc, String st) {
-        return null;
+        return recuritMapper.getRecuritByScAndSt(sc, st);
     }
 }

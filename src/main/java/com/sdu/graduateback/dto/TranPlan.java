@@ -8,7 +8,10 @@
 
 package com.sdu.graduateback.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 //信息待完善
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TranPlan {
 
     String i;//学生学号

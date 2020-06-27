@@ -9,7 +9,9 @@
 package com.sdu.graduateback.mapper;
 
 import com.sdu.graduateback.dto.Team;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface TeamMapper {
 
     Team getTeamById(String id);

@@ -15,13 +15,14 @@ import com.sdu.graduateback.mapper.TeamMapper;
 import com.sdu.graduateback.mapper.UserMapper;
 import com.sdu.graduateback.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class TeamServiceImpl implements TeamService {
 
     @Autowired
@@ -62,13 +63,13 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public Team teamPack(Team oldT, Team newT) {
-        if(StringUtils.isEmpty(oldT.getTn()))
+        if(!StringUtils.isEmpty(oldT.getTn()))
             newT.setTn(oldT.getTn());
 
-        if(StringUtils.isEmpty(oldT.getTi()))
+        if(!StringUtils.isEmpty(oldT.getTi()))
             newT.setTi(oldT.getTi());
 
-        if(StringUtils.isEmpty(oldT.getTml()))
+        if(!StringUtils.isEmpty(oldT.getTml()))
             newT.setTml(oldT.getTml());
 
         return newT;

@@ -57,7 +57,7 @@ public class UserController {
         String pass=user.getP();
 
         String code=user.getCode();
-
+        String token=user.getToken();
         Map<String,String>hashMap=new HashMap<>();
 
         int result=0;

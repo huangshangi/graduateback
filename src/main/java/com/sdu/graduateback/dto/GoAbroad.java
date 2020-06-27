@@ -52,4 +52,16 @@ public class GoAbroad {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "GoAbroad{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", reson='" + reson + '\'' +
+                ", time='" + time + '\'' +
+                ", type='" + type + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

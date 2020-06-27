@@ -9,9 +9,10 @@
 package com.sdu.graduateback.mapper;
 
 import com.sdu.graduateback.dto.Student;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
+@Mapper
 public interface StudentMapper {
 
     List<Student>getStudentsByTeacherId(String teacherId);

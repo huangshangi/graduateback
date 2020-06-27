@@ -15,9 +15,19 @@
     <select id="getAwards" parameterType="String" resultMap="AwardResultMapper" resultType="com.sdu.graduateback.dto.Award">
         select * from award where user_id = #{personId}
     </select>
+
+    <select id="getAwardsByType" parameterType="String" resultMap="AwardResultMapper" resultType="com.sdu.graduateback.dto.Award">
+        select * from award where user_id = #{personId} and type=#{type}
+    </select>
+
     <select id="getAwardById" parameterType="String" resultMap="AwardResultMapper" resultType="com.sdu.graduateback.dto.Award">
         select * from award where award_id = #{id}
     </select>
+
+    <select id="getAwardByUserId" parameterType="String" resultMap="AwardResultMapper" resultType="com.sdu.graduateback.dto.Award">
+        select * from award where user_id = #{id}
+    </select>
+
     <update id="updateAward" parameterType="com.sdu.graduateback.dto.Award">
         update award set title = #{n}, user_id = #{personId} ,detail = #{d}, title = #{n}, date = #{time}, type = #{t} where award_id = #{i}
     </update>

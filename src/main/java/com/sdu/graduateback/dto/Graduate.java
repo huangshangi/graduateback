@@ -7,9 +7,13 @@
  */
 
 package com.sdu.graduateback.dto;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /*所有审核字段应遵循的规则
  *0->未申请审核 1->已申请审核但未被处理 2->已申请审核 已被处理但未通过 3->已申请审核 已被处理已通过
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Graduate {
 
 
@@ -134,5 +138,24 @@ public class Graduate {
 
     public void setTpa(String tpa) {
         this.tpa = tpa;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Graduate{" +
+                "i='" + i + '\'' +
+                ", ga='" + ga + '\'' +
+                ", e='" + e + '\'' +
+                ", gp='" + gp + '\'' +
+                ", ta='" + ta + '\'' +
+                ", na='" + na + '\'' +
+                ", gba='" + gba + '\'' +
+                ", ba='" + ba + '\'' +
+                ", tpa='" + tpa + '\'' +
+                ", token='" + token + '\'' +
+                ", t='" + t + '\'' +
+                ", o='" + o + '\'' +
+                '}';
     }
 }

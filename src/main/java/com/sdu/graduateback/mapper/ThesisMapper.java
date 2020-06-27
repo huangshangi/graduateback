@@ -9,9 +9,11 @@
 package com.sdu.graduateback.mapper;
 
 import com.sdu.graduateback.dto.Thesis;
+import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@Mapper
 public interface ThesisMapper {
     int addThesis(Thesis thesis);
 

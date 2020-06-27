@@ -8,6 +8,9 @@
 
 package com.sdu.graduateback.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.sdu.graduateback.utils.StringUtil;
+
 public class Result {
 
     private String status;
@@ -49,7 +52,10 @@ public class Result {
 
     public Result(String status, String reason, Object result) {
         this.status = status;
-        this.reason = reason;
+        if(!StringUtil.isEmpty(reason))
+            this.reason = reason;
+        else
+            this.reason="";
         this.result = result;
     }
 }

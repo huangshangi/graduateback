@@ -15,13 +15,14 @@ import com.sdu.graduateback.mapper.RecuritQualificationMapper;
 import com.sdu.graduateback.service.RecuritQualificationService;
 import com.sdu.graduateback.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class RecuritQualificationServiceImpl implements RecuritQualificationService {
 
     @Autowired
@@ -138,11 +139,13 @@ public class RecuritQualificationServiceImpl implements RecuritQualificationServ
         if(type.equals("1")){
             //删除申请招生信息
             recuritQualification.setLoma(deleteString(loma,tid));
-            recuritQualification.setNloma(","+nloma);
+            recuritQualification.setNloma(nloma+","+tid);
         }else{
             //申请招生信息
-            recuritQualification.setLoma(","+loma);
+            recuritQualification.setLoma(loma+","+tid);
+
             recuritQualification.setNloma(deleteString(nloma,tid));
+
         }
 
         return recuritQualification;

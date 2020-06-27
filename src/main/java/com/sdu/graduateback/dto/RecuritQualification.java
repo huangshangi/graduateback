@@ -8,8 +8,10 @@
 
 package com.sdu.graduateback.dto;
 
-//import com.sun.istack.internal.NotNull;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+//import com.sun.istack.internal.NotNull;
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RecuritQualification {
 
 

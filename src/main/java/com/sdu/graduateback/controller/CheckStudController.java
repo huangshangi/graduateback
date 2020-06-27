@@ -15,6 +15,8 @@ import com.sdu.graduateback.service.StudentService;
 import com.sdu.graduateback.service.UserService;
 import com.sdu.graduateback.utils.ErrorUtil;
 import com.sdu.graduateback.utils.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,10 +25,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashMap;
 import java.util.List;
 
+@Controller
 public class CheckStudController {
-
+    @Autowired
     StudentService studentService;
-
+    @Autowired
     UserService userService;
 
     @RequestMapping(value = "/checkstud",method = RequestMethod.POST)
@@ -49,12 +52,12 @@ public class CheckStudController {
             map.put("result",list);
 
 
-            return new Result("success",null,map);
+            return new Result("success",null,list);
         }else{
             //查询单个学生信息
             Student student=studentService.getStudentById(i);
             map.put("result",student);
-            return new Result("success",null,map);
+            return new Result("success",null,student);
         }
 
 

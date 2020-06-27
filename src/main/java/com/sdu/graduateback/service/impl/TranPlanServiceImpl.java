@@ -17,12 +17,13 @@ import com.sdu.graduateback.mapper.StudentMapper;
 import com.sdu.graduateback.mapper.TranPlanMapper;
 import com.sdu.graduateback.service.TranPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class TranPlanServiceImpl implements TranPlanService {
 
     @Autowired
@@ -60,10 +61,13 @@ public class TranPlanServiceImpl implements TranPlanService {
             Graduate graduate=graduateMapper.getGraduateById(student.getI());
             TranPlan tranPlan=tranPlanMapper.getTranPlanById(student.getI());
 
-            if(!graduate.getTpa().equals("0"))
+            if(!graduate.getTpa().equals("0")){
                 tranPlan.setStatus(graduate.getTpa());
+                res.add(tranPlan);
+            }
 
-            res.add(tranPlan);
+
+
 
         }
 

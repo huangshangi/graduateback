@@ -12,9 +12,10 @@ import com.sdu.graduateback.dto.Student;
 import com.sdu.graduateback.mapper.StudentMapper;
 import com.sdu.graduateback.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
@@ -32,7 +33,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudentById(String id) {
-        return null;
+        return studentMapper.getStudentById(id);
     }
 
     @Override
@@ -42,6 +43,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public int updateStudent(Student student) {
-        return 0;
+        return studentMapper.updateStudent(student);
     }
 }

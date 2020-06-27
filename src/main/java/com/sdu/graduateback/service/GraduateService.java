@@ -11,9 +11,10 @@ package com.sdu.graduateback.service;
 import com.sdu.graduateback.dto.Graduate;
 import com.sdu.graduateback.dto.Student;
 import com.sdu.graduateback.dto.Thesis;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface GraduateService {
 
     int addGraduate(Graduate graduate);

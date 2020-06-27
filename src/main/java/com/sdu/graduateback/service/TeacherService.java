@@ -9,7 +9,9 @@
 package com.sdu.graduateback.service;
 
 import com.sdu.graduateback.dto.Teacher;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface TeacherService {
 
 

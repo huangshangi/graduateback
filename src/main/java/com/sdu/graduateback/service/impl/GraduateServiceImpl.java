@@ -17,12 +17,13 @@ import com.sdu.graduateback.mapper.TeacherMapper;
 import com.sdu.graduateback.service.GraduateService;
 import com.sdu.graduateback.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class GraduateServiceImpl implements GraduateService {
 
     @Autowired
@@ -74,6 +75,7 @@ public class GraduateServiceImpl implements GraduateService {
     @Override
     public int updateGraduateByGType(String id, String type, String value) {
         Graduate graduate=graduateMapper.getGraduateById(id);
+        System.out.println(graduate.getTpa());
         if(value.equals("0"))
             value="3";
         else if(value.equals("1"))
